@@ -31,4 +31,23 @@ class ReviewsModel {
         return $reviews;
     }
 
+    function getById($id) {
+        $query = $this->db->prepare('SELECT * FROM reseñas WHERE id_reseña = ?');
+        $query->execute([$id]);
+
+        $review = $query->fetch(PDO::FETCH_OBJ);
+
+        return $review;
+    }
+
+    function insert($titulo, $reseña, $categoria) {
+        $query = $this->db->prepare('INSERT INTO reseñas (titulo, reseña, id_categoria) VALUES (?,?,?)');
+        $query->execute([$titulo, $reseña, $categoria]);
+    }
+
+    function remove($id) {
+        $query = $this->db->prepare('DELETE FROM reseñas WHERE id = ?');
+        $query->execute([$id]);
+    }
+
 }
