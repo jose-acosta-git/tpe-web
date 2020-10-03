@@ -15,5 +15,5 @@ class ReviewsView {
     function showError($msg) {
         
     }
-
+    
 }

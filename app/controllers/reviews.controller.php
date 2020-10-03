@@ -17,6 +17,10 @@ class ReviewsController {
         $this->view->printReviews($reviews);
     }
 
+    function showHome(){
+        $this->view->printHome(); 
+    }
+
     function showReviewsByCategory($category){
         $reviews = $this->model->getByCategory($category);
         $this->view->printReviews($reviews);
