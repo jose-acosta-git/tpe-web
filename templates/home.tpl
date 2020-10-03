@@ -1,9 +1,9 @@
 {include 'head.tpl'}
 {include 'header.tpl'}
 
-<section class="row">
+<section class="row py-5">
     <figure class="col-8">
-        <img class="container-fluid" src="../images/home.png" alt="presentacion">
+        <img class="container-fluid" src="images/home.png" alt="presentacion">
     </figure>
     <div class="card col-4">
         <div class="card-header">

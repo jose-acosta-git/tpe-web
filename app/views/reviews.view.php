@@ -9,9 +9,10 @@ class ReviewsView {
         $smarty->display('templates/home.tpl');
     }
     
-    function printReviews($reviews) {
+    function printReviews($reviews, $cantidad) {
         $smarty = new Smarty();
         $smarty->assign('reviews', $reviews);
+        $smarty->assign('cantidad', $cantidad);
         $smarty->display('templates/reviews.tpl');
     }
 

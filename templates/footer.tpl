@@ -1,8 +1,8 @@
 </main>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <img src="../images/anime-world.png" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        Bootstrap
+    <a class="navbar-brand" href="home">
+        <img src="images/anime-world.png" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        Anime World
     </a>
 </nav>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
