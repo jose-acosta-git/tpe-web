@@ -26,5 +26,5 @@ class ReviewsView {
         $smarty->assign('msg', $msg);
         $smarty->display('templates/error.tpl');
     }
-
+    
 }
