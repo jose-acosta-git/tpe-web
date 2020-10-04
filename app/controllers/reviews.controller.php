@@ -24,7 +24,8 @@ class ReviewsController {
 
     function showReviewsByCategory($category){
         $reviews = $this->model->getByCategory($category);
-        $this->view->printReviews($reviews);
+        $cantidad = count($reviews);
+        $this->view->printReviews($reviews, $cantidad);
     }
 
     function showDetail($id) {
