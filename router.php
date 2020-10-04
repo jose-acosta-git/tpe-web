@@ -1,5 +1,6 @@
 <?php
 include_once 'app/controllers/reviews.controller.php';
+include_once 'app/controllers/admin.controllers.php';
 
 
 // defino la base url para la construccion de links con urls semánticas
@@ -25,6 +26,9 @@ switch ($params[0]) {
         $controller = new ReviewsController();
         $controller->showReviews();
         break;
+    case 'login':
+        $controller = new AdminController();
+        $controler->login();
     case 'filtrar':
         
     default:
