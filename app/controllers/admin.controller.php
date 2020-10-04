@@ -14,7 +14,7 @@ class AdminController {
     }
 
     function login() {
-        
+        $this->view->printForm();
     }
 
 }
