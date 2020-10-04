@@ -1,5 +1,5 @@
 <?php
-include_once 'app/controllers/review.controller.php';
+include_once 'app/controllers/reviews.controller.php';
 
 
 // defino la base url para la construccion de links con urls semánticas
@@ -18,11 +18,11 @@ $params = explode('/', $action);
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home':
-        $controller = new ReviewController();
+        $controller = new ReviewsController();
         $controller->showHome();
         break;
     case 'listar':
-        $controller = new ReviewController();
+        $controller = new ReviewsController();
         $controller->showReviews();
         break;
     case 'filtrar':

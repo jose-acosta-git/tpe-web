@@ -14,7 +14,8 @@ class ReviewsController {
 
     function showReviews() {
         $reviews = $this->model->getAll();
-        $this->view->printReviews($reviews);
+        $cantidad = count($reviews);
+        $this->view->printReviews($reviews, $cantidad);
     }
 
     function showHome(){
