@@ -26,6 +26,9 @@ switch ($params[0]) {
         $controller->showReviews();
         break;
     case 'filtrar':
+        $controller = new ReviewsController();
+        $controller->showReviewsByCategory($params[1]);
+        break;
         
     default:
         header("HTTP/1.0 404 Not Found");
