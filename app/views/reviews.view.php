@@ -4,28 +4,31 @@ include_once 'libs/smarty/libs/Smarty.class.php';
 
 class ReviewsView {
 
+    private $smarty;
+
+    function __construct(){
+        $this->smarty = new Smarty();
+    }
+
     function printHome() {
-        $smarty = new Smarty();
-        $smarty->display('templates/home.tpl');
+        $this->smarty->display('templates/home.tpl');
     }
     
     function printReviews($reviews, $cantidad) {
-        $smarty = new Smarty();
-        $smarty->assign('reviews', $reviews);
-        $smarty->assign('cantidad', $cantidad);
-        $smarty->display('templates/reviews.tpl');
+        $this->smarty->assign('reviews', $reviews);
+        $this->smarty->assign('cantidad', $cantidad);
+        $this->smarty->assign('titulo', 'Reviews mas destacadas');
+        $this->smarty->display('templates/printReviews.tpl');
     }
 
     function printReview($review) {
-        $smarty = new Smarty();
-        $smarty->assign('review', $review);
-        $smarty->display('templates/review.tpl');
+        $this->smarty->assign('review', $review);
+        $this->smarty->display('templates/review.tpl');
     }
 
     function showError($msg) {
-        $smarty = new Smarty();
-        $smarty->assign('msg', $msg);
-        $smarty->display('templates/error.tpl');
+        $this->smarty->assign('msg', $msg);
+        $this->smarty->display('templates/error.tpl');
     }
     
 }
