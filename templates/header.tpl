@@ -9,16 +9,18 @@
             <a class="nav-link" href="home">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="listar">Reviews</a>
+            <a class="nav-link" href= "listar">Reviews</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorias
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="filtrar/1">Aventura</a>
+            <a class="dropdown-item" href="filtrar/2">Isekai</a>
+            <a class="dropdown-item" href="filtrar/3">Magia</a>
+            <a class="dropdown-item" href="filtrar/4">Shounen</a>
+            <a class="dropdown-item" href="filtrar/5">Deportes</a>
             </div>
         </li>
         </ul>

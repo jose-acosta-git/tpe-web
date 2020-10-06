@@ -23,7 +23,7 @@ class ReviewsModel {
     }
 
     function getByCategory($category) {
-        $query = $this->db->prepare('SELECT * FROM reseñas WHERE prioridad = ?');
+        $query = $this->db->prepare('SELECT * FROM reseñas WHERE id_categoria = ?');
         $query->execute([$category]);
 
         $reviews = $query->fetchAll(PDO::FETCH_OBJ);

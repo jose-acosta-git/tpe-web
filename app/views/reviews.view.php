@@ -18,7 +18,15 @@ class ReviewsView {
         $this->smarty->assign('reviews', $reviews);
         $this->smarty->assign('cantidad', $cantidad);
         $this->smarty->assign('titulo', 'Reviews mas destacadas');
-        $this->smarty->display('templates/printReviews.tpl');
+        $this->smarty->display('templates/printAllReviews.tpl');
+    }
+
+    function printReviewsByCategory($reviews, $cantidad, $categoria) {
+        $this->smarty->assign('reviews', $reviews);
+        $this->smarty->assign('cantidad', $cantidad);
+        $this->smarty->assign('categoria', $categoria);
+        $this->smarty->assign('titulo', 'Reseñas de esta categoría');
+        $this->smarty->display('templates/printReviewsByCategory.tpl');
     }
 
     function printReview($review) {

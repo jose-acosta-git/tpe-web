@@ -1,6 +1,3 @@
-{include 'head.tpl'}
-{include 'header.tpl'}
-
 {assign var=i value="0"}
 
 <h1 class="row justify-content-center">{$titulo}</h1>
@@ -29,5 +26,3 @@
     {/foreach}
 
 </section>
-
-{include 'footer.tpl'}
