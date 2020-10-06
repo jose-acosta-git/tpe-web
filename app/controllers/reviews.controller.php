@@ -1,20 +1,32 @@
 <?php
 include_once 'app/models/reviews.model.php';
 include_once 'app/views/reviews.view.php';
+include_once 'app/models/categories.model.php';
 
 class ReviewsController {
 
     private $model;
     private $view;
+    private $categoriesModel;
 
     function __construct() {
         $this->model = new ReviewsModel();
         $this->view = new ReviewsView();
+        $this->categoriesModel = new CategoriesModel();
     }
 
     function showReviews() {
         $reviews = $this->model->getAll();
         $cantidad = count($reviews);
+        $categories = $this->categoriesModel->getAll();
+        
+        foreach ($reviews as $review) {
+            foreach ($categories as $category) {
+                if ($category->id_categoria == $review->id_categoria) {
+                    $review->categoria = $category->nombre;
+                }
+            }
+        }
         $this->view->printReviews($reviews, $cantidad);
     }
 
