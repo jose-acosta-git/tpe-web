@@ -31,7 +31,7 @@ class ReviewsView {
 
     function printReview($review) {
         $this->smarty->assign('review', $review);
-        $this->smarty->display('templates/review.tpl');
+        $this->smarty->display('templates/printDetail.tpl');
     }
 
     function showError($msg) {
