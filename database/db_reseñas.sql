@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 00:24:36
+-- Tiempo de generación: 08-10-2020 a las 00:42:11
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -24,34 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
---
-
-CREATE TABLE `categorias` (
-  `id_categoria` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `descripcion` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `categorias`
---
-
-INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`) VALUES
-(1, 'Aventura', 'Resaltan características cómo: el riesgo, la sorpresa y el misterio. La trama tiene mucha importancia, no tanto el aspecto psicológico de los personajes.'),
-(2, 'Isekai', 'Gira en torno a una persona normal de la Tierra que es transportada, renacida o atrapado en un universo paralelo o un mundo de fantasía.'),
-(3, 'Magia', 'La magia dota a los personajes con poderes que no ocurren naturalmente en el mundo real, se manifiesta frecuentemente en la transformación de un personaje, si no en la transformación del mundo ficticio.'),
-(4, 'Shounen', 'Series con grandes dosis de acción,​ a menudo situaciones humorísticas con protagonistas masculinos. El compañerismo entre adolescentes o adultos de un equipo de combate, también suele subrayarse en un shounen.'),
-(5, 'Deportes', 'En estos animes la trama gira en torno a un equipo deportivo y al desarrollo de sus personajes, durante varias etapas competitivas.');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `reseñas`
 --
 
 CREATE TABLE `reseñas` (
-  `id_reseña` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `titulo` varchar(50) NOT NULL,
   `autor` varchar(50) NOT NULL,
   `reseña` text NOT NULL,
@@ -62,7 +39,7 @@ CREATE TABLE `reseñas` (
 -- Volcado de datos para la tabla `reseñas`
 --
 
-INSERT INTO `reseñas` (`id_reseña`, `titulo`, `autor`, `reseña`, `id_categoria`) VALUES
+INSERT INTO `reseñas` (`id`, `titulo`, `autor`, `reseña`, `id_categoria`) VALUES
 (1, 'Re: Zero kara Hajimeru Isekai Seikatsu', 'Tappei Nagatsuki', 'Cuando Subaru Natsuki sale de la tienda, lo último que espera es ser arrancado de su vida cotidiana y caer en un mundo de fantasía. Las cosas no pintan bien para el adolescente desconcertado; sin embargo, poco después de su llegada, es atacado por unos matones. Armado con solo una bolsa de víveres y un teléfono celular ahora inútil, rápidamente lo reducen a palos. Afortunadamente, una misteriosa belleza llamada Satella, que persigue a quien le robó su insignia, se encuentra con Subaru y lo salva. Para agradecer a la chica honesta y de buen corazón, Subaru se ofrece a ayudar en su búsqueda, y más tarde esa noche, incluso encuentra el paradero de lo que ella busca. Pero sin que ellos lo sepan, una fuerza mucho más oscura acecha a la pareja desde las sombras, y pocos minutos después de localizar la insignia, Subaru y Satella son brutalmente asesinados.\r\nSin embargo, Subaru se despierta de inmediato a una escena familiar, confrontado por el mismo grupo de matones, encontrándose con Satella de nuevo, el enigma se profundiza a medida que la historia se repite inexplicablemente.', 2),
 (2, 'Haikyu!!', 'Haruichi Furudate', 'La historia sigue la carrera de Shoyo Hinata, un chico que ama el voleibol y decide conformar un equipo para competir en el interescolar. Pero en el último torneo de escuela media, su equipo recibe una auténtica paliza del equipo de Tobio Kageyama, un prodigio de este deporte. Al entrar a preparatoria Hinata decide unirse a Karasuno y al equipo de voleibol para así algún día vengarse de Kageyama pero, para su sorpresa, Kageyama también está en el equipo. Así, dos antiguos rivales forman un equipo imbatible con el que buscan conseguir el campeonato nacional', 5),
 (3, 'One Piece', 'Eiichirō Oda', 'Gol D. Roger era conocido como el \"Rey Pirata\", el ser más fuerte e infame que navegó en Grand Line. La captura y ejecución de Roger por el Gobierno Mundial trajo un cambio en todo el mundo. Sus últimas palabras antes de su muerte revelaron la existencia del mayor tesoro del mundo, One Piece. Fue esta revelación la que provocó la Gran Era de los Piratas, hombres que soñaban con encontrar One Piece, que promete una cantidad ilimitada de riquezas y fama, y ​​muy posiblemente el pináculo de la gloria y el título de Rey Pirata.\r\nIngresa Monkey D. Luffy, un chico de 17 años que desafía tu definición estándar de pirata. En lugar de la personalidad popular de un pirata malvado, endurecido y desdentado que saquea pueblos por diversión, la razón de Luffy para ser pirata es pura maravilla: la idea de una aventura emocionante que lo lleva a personas intrigantes y, en última instancia, al tesoro prometido. Siguiendo los pasos de su héroe de la infancia, Luffy y su tripulación viajan a través de Grand Line, experimentando locas aventuras, desvelando oscuros misterios y luchando contra enemigos poderosos, todo para alcanzar la más codiciada de todas las fortunas: One Piece.', 1),
@@ -79,16 +56,10 @@ INSERT INTO `reseñas` (`id_reseña`, `titulo`, `autor`, `reseña`, `id_categori
 --
 
 --
--- Indices de la tabla `categorias`
---
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id_categoria`);
-
---
 -- Indices de la tabla `reseñas`
 --
 ALTER TABLE `reseñas`
-  ADD PRIMARY KEY (`id_reseña`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
@@ -96,16 +67,10 @@ ALTER TABLE `reseñas`
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
---
-ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT de la tabla `reseñas`
 --
 ALTER TABLE `reseñas`
-  MODIFY `id_reseña` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
