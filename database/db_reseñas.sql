@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 00:42:11
+-- Tiempo de generación: 08-10-2020 a las 00:53:20
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_reseñas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`) VALUES
+(1, 'Aventura', 'Resaltan características cómo: el riesgo, la sorpresa y el misterio. La trama tiene mucha importancia, no tanto el aspecto psicológico de los personajes.'),
+(2, 'Isekai', 'Gira en torno a una persona normal de la Tierra que es transportada, renacida o atrapado en un universo paralelo o un mundo de fantasía.'),
+(3, 'Magia', 'La magia dota a los personajes con poderes que no ocurren naturalmente en el mundo real, se manifiesta frecuentemente en la transformación de un personaje, si no en la transformación del mundo ficticio.'),
+(4, 'Shounen', 'Series con grandes dosis de acción,​ a menudo situaciones humorísticas con protagonistas masculinos. El compañerismo entre adolescentes o adultos de un equipo de combate, también suele subrayarse en un shounen.'),
+(5, 'Deportes', 'En estos animes la trama gira en torno a un equipo deportivo y al desarrollo de sus personajes, durante varias etapas competitivas.');
 
 -- --------------------------------------------------------
 
@@ -56,6 +79,12 @@ INSERT INTO `reseñas` (`id`, `titulo`, `autor`, `reseña`, `id_categoria`) VALU
 --
 
 --
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
 -- Indices de la tabla `reseñas`
 --
 ALTER TABLE `reseñas`
@@ -65,6 +94,12 @@ ALTER TABLE `reseñas`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `reseñas`
