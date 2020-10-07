@@ -12,7 +12,7 @@
             <a class="nav-link" href= "listar">Reviews</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorias
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
