@@ -32,7 +32,7 @@ class ReviewsModel {
     }
 
     function getById($id) {
-        $query = $this->db->prepare('SELECT * FROM reseñas WHERE id_reseña = ?');
+        $query = $this->db->prepare('SELECT * FROM reseñas WHERE id = ?');
         $query->execute([$id]);
 
         $review = $query->fetch(PDO::FETCH_OBJ);

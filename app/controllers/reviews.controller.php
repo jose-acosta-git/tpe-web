@@ -45,6 +45,8 @@ class ReviewsController {
     function showDetail($id) {
         $review = $this->model->getById($id);
         if($review) {
+            $review->review = $review->reseña;
+            $review->categoria = $this->categoriesModel->getById($review->id_categoria)->nombre;
             $this->view->printReview($review);
         }
         else {
