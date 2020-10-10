@@ -14,7 +14,8 @@ class ReviewsModel {
     }
 
     function getAll() {
-        $query = $this->db->prepare('SELECT * FROM reviews');
+        $query = $this->db->prepare('SELECT reviews.*,categories.name as name_category
+        FROM `reviews` JOIN categories ON (reviews.id_category = categories.id)');
         $query->execute();
 
         $reviews = $query->fetchAll(PDO::FETCH_OBJ);
@@ -32,7 +33,8 @@ class ReviewsModel {
     }
 
     function getById($id) {
-        $query = $this->db->prepare('SELECT * FROM reviews WHERE id = ?');
+        $query = $this->db->prepare('SELECT reviews.*,categories.name as name_category FROM `reviews`
+        JOIN categories ON (reviews.id_category = categories.id) WHERE reviews.id = ?');
         $query->execute([$id]);
 
         $review = $query->fetch(PDO::FETCH_OBJ);

@@ -18,15 +18,7 @@ class ReviewsController {
     function showReviews() {
         $reviews = $this->model->getAll();
         $cantidad = count($reviews);
-        $categories = $this->categoriesModel->getAll();
 
-        foreach ($reviews as $review) {
-            foreach ($categories as $category) {
-                if ($category->id == $review->id_category) {
-                    $review->categoria = $category->name;
-                }
-            }
-        }
         $this->view->printReviews($reviews, $cantidad);
     }
 
@@ -45,7 +37,6 @@ class ReviewsController {
     function showDetail($id) {
         $review = $this->model->getById($id);
         if($review) {
-            $review->categoria = $this->categoriesModel->getById($review->id_category)->name;
             $this->view->printReview($review);
         }
         else {
