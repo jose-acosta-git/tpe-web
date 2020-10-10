@@ -1,7 +1,7 @@
 <div class="card col" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">{$review->titulo}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{$review->autor}</h6>
+        <h5 class="card-title">{$review->title}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{$review->author}</h6>
         {if !isset($categoria)}
         <p class="card-text">{$review->categoria}</p>
         {/if}

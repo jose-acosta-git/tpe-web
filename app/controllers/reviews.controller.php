@@ -22,8 +22,8 @@ class ReviewsController {
 
         foreach ($reviews as $review) {
             foreach ($categories as $category) {
-                if ($category->id_categoria == $review->id_categoria) {
-                    $review->categoria = $category->nombre;
+                if ($category->id == $review->id_category) {
+                    $review->categoria = $category->name;
                 }
             }
         }
@@ -45,8 +45,7 @@ class ReviewsController {
     function showDetail($id) {
         $review = $this->model->getById($id);
         if($review) {
-            $review->review = $review->reseña;
-            $review->categoria = $this->categoriesModel->getById($review->id_categoria)->nombre;
+            $review->categoria = $this->categoriesModel->getById($review->id_category)->name;
             $this->view->printReview($review);
         }
         else {

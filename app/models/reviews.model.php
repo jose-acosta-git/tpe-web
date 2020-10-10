@@ -9,12 +9,12 @@ class ReviewsModel {
     }
 
     private function connect() {
-        $db = new PDO('mysql:host=localhost;'.'dbname=db_reseñas;charset=utf8', 'root', '');
+        $db = new PDO('mysql:host=localhost;'.'dbname=db_reviews;charset=utf8', 'root', '');
         return $db;
     }
 
     function getAll() {
-        $query = $this->db->prepare('SELECT * FROM reseñas');
+        $query = $this->db->prepare('SELECT * FROM reviews');
         $query->execute();
 
         $reviews = $query->fetchAll(PDO::FETCH_OBJ);
@@ -23,7 +23,7 @@ class ReviewsModel {
     }
 
     function getByCategory($category) {
-        $query = $this->db->prepare('SELECT * FROM reseñas WHERE id_categoria = ?');
+        $query = $this->db->prepare('SELECT * FROM reviews WHERE id_category = ?');
         $query->execute([$category]);
 
         $reviews = $query->fetchAll(PDO::FETCH_OBJ);
@@ -32,7 +32,7 @@ class ReviewsModel {
     }
 
     function getById($id) {
-        $query = $this->db->prepare('SELECT * FROM reseñas WHERE id = ?');
+        $query = $this->db->prepare('SELECT * FROM reviews WHERE id = ?');
         $query->execute([$id]);
 
         $review = $query->fetch(PDO::FETCH_OBJ);
@@ -41,12 +41,12 @@ class ReviewsModel {
     }
 
     function insert($titulo, $reseña, $categoria) {
-        $query = $this->db->prepare('INSERT INTO reseñas (titulo, reseña, id_categoria) VALUES (?,?,?)');
+        $query = $this->db->prepare('INSERT INTO reviews (title, review, id_category) VALUES (?,?,?)');
         $query->execute([$titulo, $reseña, $categoria]);
     }
 
     function remove($id) {
-        $query = $this->db->prepare('DELETE FROM reseñas WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM reviews WHERE id = ?');
         $query->execute([$id]);
     }
 
