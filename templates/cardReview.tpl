@@ -7,7 +7,7 @@
         {/if}
         <a href="detallar/{$review->id}" class="card-link">Ver Reseña</a>
         {if !isset($categoria)}
-        <a href="#" class="card-link">Más reseñas de esta categoría</a>
+        <a href="filtrar/{$review->id_category}" class="card-link">Más reseñas de esta categoría</a>
         {/if}
     </div>
 </div>
