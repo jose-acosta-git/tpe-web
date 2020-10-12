@@ -42,9 +42,9 @@ class ReviewsModel {
         return $review;
     }
 
-    function insert($titulo, $reseña, $categoria) {
-        $query = $this->db->prepare('INSERT INTO reviews (title, review, id_category) VALUES (?,?,?)');
-        $query->execute([$titulo, $reseña, $categoria]);
+    function insert($title, $author, $review, $category) {
+        $query = $this->db->prepare('INSERT INTO reviews (title, author, review, id_category) VALUES (?,?,?,?)');
+        $query->execute([$title, $author, $review, $category]);
     }
 
     function remove($id) {

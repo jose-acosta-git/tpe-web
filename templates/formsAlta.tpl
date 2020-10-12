@@ -1,20 +1,23 @@
+{include 'head.tpl'}
+{include 'header.tpl'}
+
 <section class="row">
 
-  <form class="col">
+  <form class="col" method="POST" action="insertarRev">
     <h3>Agregar reseña</h3>
     <div class="form-group">
       <label for="title">Título</label>
-      <input class="form-control" type="text" placeholder="Ej: {$reviews[0]->title}" name="title">
+      <input class="form-control" type="text" placeholder="Ej: One Piece" name="title">
     </div>
     <div class="form-group">
       <label for="title">Autor</label>
-      <input class="form-control" type="text" placeholder="Ej: {$reviews[0]->author}" name="author">
+      <input class="form-control" type="text" placeholder="Ej: Eiichirō Oda" name="author">
     </div>
     <div class="form-group">
       <label for="categorySelect">Categoría</label>
-      <select class="form-control" id="categorySelect" name="categorySelect">
+      <select class="form-control" id="categorySelect" name="category">
         {foreach from=$categories item=category}
-            <option>{$category->name}</option>
+            <option value="{$category->id}">{$category->name}</option>
         {/foreach}}
       </select>
     </div>
@@ -25,11 +28,11 @@
      <button type="submit" class="btn btn-primary">Agregar</button>
   </form>
 
-  <form class="col align-self-center">
+  <form class="col align-self-center" method="POST" action="insertarCat">
     <h3>Agregar categoría</h3>
     <div class="form-group">
       <label for="name">Nombre</label>
-      <input class="form-control" type="text" placeholder="Ej: {$categories[0]->name}" name="name">
+      <input class="form-control" type="text" placeholder="Ej: Aventura" name="name">
     </div>
     <div class="form-group">
       <label for="description">Descripción</label>
@@ -39,3 +42,5 @@
   </form>
 
 </section>
+
+{include 'footer.tpl'}

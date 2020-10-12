@@ -31,4 +31,9 @@ class CategoriesModel {
         return $review;
     }
 
+    function insert($name, $description) {
+        $query = $this->db->prepare('INSERT INTO categories (name, description) VALUES (?,?)');
+        $query->execute([$name, $description]);
+    }
+
 }

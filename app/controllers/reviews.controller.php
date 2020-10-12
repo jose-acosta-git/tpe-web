@@ -3,6 +3,7 @@ include_once 'app/models/reviews.model.php';
 include_once 'app/views/reviews.view.php';
 include_once 'app/models/categories.model.php';
 include_once 'app/helpers/categories.helper.php';
+include_once 'app/views/admin.view.php';
 
 class ReviewsController {
 
@@ -11,6 +12,7 @@ class ReviewsController {
     private $categoriesModel;
     private $categoriesHelper;
     private $categories;
+    private $adminView;
 
     function __construct() {
         $this->model = new ReviewsModel();
@@ -18,6 +20,7 @@ class ReviewsController {
         $this->categories = $this->categoriesHelper->getAll();
         $this->view = new ReviewsView($this->categories);
         $this->categoriesModel = new CategoriesModel();
+        $this->adminView = new AdminView($this->categories);
     }
 
     function showReviews() {
@@ -49,16 +52,37 @@ class ReviewsController {
         }
     }
 
-    function addReview() {
-        $titulo = $_POST['titulo'];
-        $reseña = $_POST['reseña'];
-        $categoria = $_POST['categoria'];
+    function showForms() {
+        $this->adminView->printForms();
+    }
 
-        if (empty($titulo) || empty($reseña)) {
+    function addReview() {
+        $title = $_POST['title'];
+        $author = $_POST['author']; 
+        $review = $_POST['review'];
+        $category = $_POST['category'];
+
+        if (empty($title) || empty($author) || empty($review)) {
             $this->view->showError('Faltan datos obligatorios');
             die();
         }
-        $id = $this->model->insert($titulo, $reseña, $categoria);
+
+        $this->model->insert($title, $author, $review, $category);
+
+        header("Location: " . BASE_URL . "agregar");
+    }
+
+    function addCategory() {
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+
+        if (empty($name) || empty($description)) {
+            $this->view->showError('Faltan datos obligatorios');
+            die();
+        }
+
+        $this->categoriesModel->insert($name, $description);
+        header("Location: " . BASE_URL . "agregar");
     }
 
     function deleteReview($id) {
