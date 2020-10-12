@@ -2,7 +2,7 @@
 
 include_once 'app/models/categories.model.php';
 
-class HeaderHelper {
+class CategoriesHelper {
 
     private $model;
 

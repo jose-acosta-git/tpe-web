@@ -2,20 +2,20 @@
 include_once 'app/models/reviews.model.php';
 include_once 'app/views/reviews.view.php';
 include_once 'app/models/categories.model.php';
-include_once 'app/helpers/header.helper.php';
+include_once 'app/helpers/categories.helper.php';
 
 class ReviewsController {
 
     private $model;
     private $view;
     private $categoriesModel;
-    private $headerHelper;
+    private $categoriesHelper;
     private $categories;
 
     function __construct() {
         $this->model = new ReviewsModel();
-        $this->headerHelper = new HeaderHelper();
-        $this->categories = $this->headerHelper->getAll();
+        $this->categoriesHelper = new CategoriesHelper();
+        $this->categories = $this->categoriesHelper->getAll();
         $this->view = new ReviewsView($this->categories);
         $this->categoriesModel = new CategoriesModel();
     }
