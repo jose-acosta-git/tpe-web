@@ -63,5 +63,6 @@ class ReviewsController {
 
     function deleteReview($id) {
         $this->model->remove($id);
+        header("Location: " . BASE_URL . "listar");
     }
 }

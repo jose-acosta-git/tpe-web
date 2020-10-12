@@ -6,8 +6,6 @@
         <p class="card-text">{$review->name_category}</p>
         {/if}
         <a href="detallar/{$review->id}" class="card-link">Ver Reseña</a>
-        {if !isset($categoria)}
-        <a href="filtrar/{$review->id_category}" class="card-link">Más reseñas de esta categoría</a>
-        {/if}
+        <a href="eliminar/{$review->id}" class="card-link">Eliminar</a>
     </div>
 </div>
