@@ -6,8 +6,9 @@ class ReviewsView {
 
     private $smarty;
 
-    function __construct(){
+    function __construct($categories){
         $this->smarty = new Smarty();
+        $this->smarty->assign('categories', $categories);
     }
 
     function printHome() {

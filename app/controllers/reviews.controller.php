@@ -2,16 +2,21 @@
 include_once 'app/models/reviews.model.php';
 include_once 'app/views/reviews.view.php';
 include_once 'app/models/categories.model.php';
+include_once 'app/helpers/header.helper.php';
 
 class ReviewsController {
 
     private $model;
     private $view;
     private $categoriesModel;
+    private $headerHelper;
+    private $categories;
 
     function __construct() {
         $this->model = new ReviewsModel();
-        $this->view = new ReviewsView();
+        $this->headerHelper = new HeaderHelper();
+        $this->categories = $this->headerHelper->getAll();
+        $this->view = new ReviewsView($this->categories);
         $this->categoriesModel = new CategoriesModel();
     }
 
@@ -23,7 +28,7 @@ class ReviewsController {
     }
 
     function showHome(){
-        $this->view->printHome(); 
+        $this->view->printHome($this->categories); 
     }
 
     function showReviewsByCategory($category){
