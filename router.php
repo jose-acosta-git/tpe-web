@@ -41,13 +41,21 @@ switch ($params[0]) {
         $controller = new ReviewsController();
         $controller->showForms();
         break;
-    case 'insertarRev':
+    case 'insertReview':
         $controller = new ReviewsController();
         $controller->addReview();
         break;
-    case 'insertarCat':
+    case 'insertCategory':
         $controller = new ReviewsController();
         $controller->addCategory();
+        break;
+    case 'editarReview':
+        $controller = new ReviewsController();
+        $controller->showEditReview($params[1]);
+        break;
+    case 'editReview':
+        $controller = new ReviewsController();
+        $controller->editReview($params[1]);
         break;
     default:
         header("HTTP/1.0 404 Not Found");

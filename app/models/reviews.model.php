@@ -52,4 +52,9 @@ class ReviewsModel {
         $query->execute([$id]);
     }
 
+    function modify($title, $author, $review, $category, $id) {
+        $query = $this->db->prepare('UPDATE reviews SET title=?, author=?, review=?, id_category=? WHERE reviews.id=?');
+        $query->execute([$title, $author, $review, $category, $id]);
+    }
+
 }

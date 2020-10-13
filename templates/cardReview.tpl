@@ -7,5 +7,6 @@
         {/if}
         <a href="detallar/{$review->id}" class="card-link">Ver Reseña</a>
         <a href="eliminar/{$review->id}" class="card-link">Eliminar</a>
+        <a href="editarReview/{$review->id}" class="card-link">Editar</a>
     </div>
 </div>

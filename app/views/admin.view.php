@@ -13,4 +13,9 @@ class AdminView {
         $this->smarty->display('templates/formsAlta.tpl');
     }
 
+    function editReview($review) {
+        $this->smarty->assign('review', $review);
+        $this->smarty->display('templates/formsEdit.tpl');
+    }
+
 }

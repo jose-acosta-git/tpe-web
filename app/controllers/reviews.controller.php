@@ -89,4 +89,29 @@ class ReviewsController {
         $this->model->remove($id);
         header("Location: " . BASE_URL . "listar");
     }
+    
+    function showEditReview($id) {
+        $review = $this->model->getById($id);
+        if (!$review) {
+            $this->view->showError("La reseña no existe");
+            die();
+        }
+        $this->adminView->editReview($review);
+    }
+
+    function editReview($id) {
+        $title = $_POST['title'];
+        $author = $_POST['author']; 
+        $review = $_POST['review'];
+        $category = $_POST['category'];
+
+        if (empty($title) || empty($author) || empty($review)) {
+            $this->view->showError('Faltan datos obligatorios');
+            die();
+        }
+
+        $this->model->modify($title, $author, $review, $category, $id);
+
+        header("Location: " . BASE_URL . "listar");
+    }
 }
