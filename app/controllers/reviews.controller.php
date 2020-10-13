@@ -31,7 +31,7 @@ class ReviewsController {
     }
 
     function showHome(){
-        $this->view->printHome($this->categories); 
+        $this->view->printHome(); 
     }
 
     function showReviewsByCategory($category){
