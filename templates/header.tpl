@@ -19,7 +19,19 @@
             {foreach from=$categories item=category}
                 <a class="dropdown-item" href="filtrar/{$category->id}">{$category->name}</a>
             {{/foreach}}
-            </div>
+        </li>
+        </ul>
+    </div>
+     <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item">Login</a>
+                <a class="dropdown-item">Agregar review o categoría</a>
+                <a class="dropdown-item">Logout</a>
         </li>
         </ul>
     </div>
