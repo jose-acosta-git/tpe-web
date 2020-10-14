@@ -14,7 +14,7 @@ class CategoriesModel {
     }
 
     function getAll() {
-        $query = $this->db->prepare('SELECT * FROM categories');
+        $query = $this->db->prepare('SELECT id, name FROM categories');
         $query->execute();
 
         $reviews = $query->fetchAll(PDO::FETCH_OBJ);
