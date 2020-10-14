@@ -57,6 +57,10 @@ switch ($params[0]) {
         $controller = new ReviewsController();
         $controller->editReview($params[1]);
         break;
+    case 'login':
+        $controller = new AuthController();
+        $controller->showLogin();
+        break;
     default:
         header("HTTP/1.0 404 Not Found");
         echo('404 Page not found');

@@ -17,5 +17,10 @@ class AdminView {
         $this->smarty->assign('review', $review);
         $this->smarty->display('templates/formsEdit.tpl');
     }
+    
+    function printFormLogin($error = null) {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/formLogin.tpl');
+    }
 
 }
