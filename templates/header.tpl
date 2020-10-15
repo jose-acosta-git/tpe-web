@@ -1,4 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand my-0 py-0" href="home">
+        <img class="my-0 py-0" src="images/anime-world.png" width="50" alt="logo" loading="lazy">
+    </a>
     <a class="navbar-brand">Anime World</a>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav d-flex w-100">
