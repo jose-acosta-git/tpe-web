@@ -17,12 +17,15 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             {foreach from=$categories item=category}
-                <a class="dropdown-item" href="filtrar/{$category->id}">{$category->name}  <button class="btn btn-primary btn-sm" >Editar</button> <button type="button" class="btn btn-danger btn-sm">Eliminar</button></a>
+                <a class="dropdown-item " href="filtrar/{$category->id}">{$category->name}</a> 
+                <button class="btn btn-primary btn-sm" >Editar</button> 
+                <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
             {{/foreach}}
         </li>
         </ul>
     </div>
-     <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    
+    <div class="collapse navbar-collapse mr-0" id="navbarNavDropdown">
         <ul class="navbar-nav">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
