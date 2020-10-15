@@ -36,4 +36,9 @@ class CategoriesModel {
         $query->execute([$name, $description]);
     }
 
+    function modify($name, $description, $id) {
+        $query = $this->db->prepare('UPDATE categories SET name=?, description=? WHERE id=?');
+        $query->execute([$name, $description, $id]);
+    }
+
 }

@@ -23,4 +23,9 @@ class AdminView {
         $this->smarty->display('templates/formLogin.tpl');
     }
 
+    function editCategory($category) {
+        $this->smarty->assign('categoria', $category);
+        $this->smarty->display('templates/formsEdit.tpl');
+    }
+
 }

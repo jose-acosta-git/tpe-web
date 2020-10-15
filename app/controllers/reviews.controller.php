@@ -114,4 +114,27 @@ class ReviewsController {
 
         header("Location: " . BASE_URL . "listar");
     }
+
+    function showEditCategory($id) {
+        $category = $this->categoriesModel->getById($id);
+        if (!$category) {
+            $this->view->showError("La categoría no existe");
+            die();
+        }
+        $this->adminView->editCategory($category);
+    }
+
+    function editCategory($id) {
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+
+        if (empty($name) || empty($description)) {
+            $this->view->showError('Faltan datos obligatorios');
+            die();
+        }
+
+        $this->categoriesModel->modify($name, $description, $id);
+
+        header("Location: " . BASE_URL . "listar");
+    }
 }
