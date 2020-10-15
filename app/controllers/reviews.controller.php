@@ -74,7 +74,7 @@ class ReviewsController {
 
         $this->model->insert($title, $author, $review, $category);
 
-        header("Location: " . BASE_URL . "agregar");
+        header("Location: " . BASE_URL . "listar");
     }
 
     function addCategory() {
@@ -89,7 +89,7 @@ class ReviewsController {
         }
 
         $this->categoriesModel->insert($name, $description);
-        header("Location: " . BASE_URL . "agregar");
+        header("Location: " . BASE_URL . "listar");
     }
 
     function deleteReview($id) {

@@ -20,6 +20,6 @@ class AuthHelper {
     function logout() {
         session_start();
         session_destroy();
-        header("Location: " . BASE_URL . 'login');
+        header("Location: " . BASE_URL . 'home');
     }   
 }

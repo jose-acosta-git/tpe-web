@@ -5,7 +5,7 @@
     <figure class="col-8">
         <img class="container-fluid" src="images/presentacion.png" alt="presentacion">
     </figure>
-    <div class="card col-4">
+    <div class="card col-4 text-white bg-secondary">
         <div class="card-header">
             ANIME WORLD
         </div>
