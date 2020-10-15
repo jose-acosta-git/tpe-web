@@ -1,16 +1,15 @@
 <?php
+include_once 'app/helpers/db.helper.php';
 
 class ReviewsModel {
 
     private $db;
+    private $dbHelper;
 
     function __construct(){
-        $this->db = $this->connect();
-    }
+        $this->dbHelper = new DBHelper();
 
-    private function connect() {
-        $db = new PDO('mysql:host=localhost;'.'dbname=db_reviews;charset=utf8', 'root', '');
-        return $db;
+        $this->db = $this->dbHelper->connect();
     }
 
     function getAll() {
