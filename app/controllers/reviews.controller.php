@@ -13,6 +13,7 @@ class ReviewsController {
     private $categoriesHelper;
     private $categories;
     private $adminView;
+    private $authHelper;
 
     function __construct() {
         $this->model = new ReviewsModel();
@@ -21,6 +22,7 @@ class ReviewsController {
         $this->view = new ReviewsView($this->categories);
         $this->categoriesModel = new CategoriesModel();
         $this->adminView = new AdminView($this->categories);
+        $this->authHelper = new AuthHelper();
     }
 
     function showReviews() {
@@ -53,10 +55,13 @@ class ReviewsController {
     }
 
     function showForms() {
+        $this->authHelper->checkLogged();
         $this->adminView->printForms();
     }
 
     function addReview() {
+        $this->authHelper->checkLogged();
+
         $title = $_POST['title'];
         $author = $_POST['author']; 
         $review = $_POST['review'];
@@ -73,6 +78,8 @@ class ReviewsController {
     }
 
     function addCategory() {
+        $this->authHelper->checkLogged();
+
         $name = $_POST['name'];
         $description = $_POST['description'];
 
@@ -86,11 +93,15 @@ class ReviewsController {
     }
 
     function deleteReview($id) {
+        $this->authHelper->checkLogged();
+
         $this->model->remove($id);
         header("Location: " . BASE_URL . "listar");
     }
     
     function showEditReview($id) {
+        $this->authHelper->checkLogged();
+
         $review = $this->model->getById($id);
         if (!$review) {
             $this->view->showError("La reseña no existe");
@@ -100,6 +111,8 @@ class ReviewsController {
     }
 
     function editReview($id) {
+        $this->authHelper->checkLogged();
+
         $title = $_POST['title'];
         $author = $_POST['author']; 
         $review = $_POST['review'];
@@ -116,12 +129,19 @@ class ReviewsController {
     }
 
     function deleteCategory($id){
+        $this->authHelper->checkLogged();
+
         $reviews = $this->model->getByCategory($id);
         foreach ($reviews as $review) {
             $this->model->remove($review->id);
         }
         $this->categoriesModel->removeCategory($id);
+
+    }
+    
     function showEditCategory($id) {
+        $this->authHelper->checkLogged();
+
         $category = $this->categoriesModel->getById($id);
         if (!$category) {
             $this->view->showError("La categoría no existe");
@@ -131,6 +151,8 @@ class ReviewsController {
     }
 
     function editCategory($id) {
+        $this->authHelper->checkLogged();
+        
         $name = $_POST['name'];
         $description = $_POST['description'];
 

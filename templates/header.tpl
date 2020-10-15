@@ -33,7 +33,11 @@
         <ul class="navbar-nav">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {if isset($smarty.session.EMAIL_USER)}
+            Admin (logged)
+            {else}
             Admin
+            {/if}
             </a>
             <div class="dropdown-menu dropdown-menu-lg-right mr-0" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item">Login</a>
