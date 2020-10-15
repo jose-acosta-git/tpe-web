@@ -34,7 +34,7 @@
       <label for="name">Nombre</label>
       <input class="form-control" type="text" placeholder="Ej: Aventura" name="name">
     </div>
-    <div class="form-group">
+    <div>
       <label for="description">Descripción</label>
       <textarea class="form-control" id="description" name="description" rows="3"></textarea>
     </div>

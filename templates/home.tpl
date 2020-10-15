@@ -7,11 +7,13 @@
     </figure>
     <div class="card col-4 text-white bg-secondary">
         <div class="card-header">
-            ANIME WORLD
+            ¡HOLA!
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
-            <p>Bienvenido a Anime World, un sitio para reviews y artículso de Anime y Manga ^w^</p>
+            <p>¡Bienvenido a Anime World!</p>
+            <p>Encuentra Reviews de los animes favoritos de la comunidad.</p>
+            <p>Siguenos en nuestras redes sociales para saber las ultimas novedades! :)</p>
             </blockquote>
         </div>
     </div>
