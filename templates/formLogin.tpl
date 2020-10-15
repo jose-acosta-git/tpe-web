@@ -2,7 +2,7 @@
 {include 'header.tpl'}
 
 <section class="container justify-content-center">
-  <form method="POST" action="verify" class="col">
+  <form method="POST" action="verify" class="col form-translucent">
     <div class="form-group">
       <label for="exampleInputEmail1">Correo electrónico</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
