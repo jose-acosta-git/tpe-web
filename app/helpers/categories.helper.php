@@ -1,5 +1,4 @@
 <?php
-
 include_once 'app/models/categories.model.php';
 
 class CategoriesHelper {
@@ -10,6 +9,7 @@ class CategoriesHelper {
         $this->model = new CategoriesModel();
     }
 
+    //busca todas las categorias a la db
     function getAll() {
         $categories = $this->model->getAll();
         return $categories;

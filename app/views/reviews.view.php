@@ -1,5 +1,4 @@
 <?php
-
 include_once 'libs/smarty/libs/Smarty.class.php';   
 
 class ReviewsView {
@@ -11,10 +10,12 @@ class ReviewsView {
         $this->smarty->assign('categories', $categories);
     }
 
+    //imprime el home
     function printHome() {
         $this->smarty->display('templates/home.tpl');
     }
     
+    //imprime todas las reviews
     function printReviews($reviews, $cantidad) {
         $this->smarty->assign('reviews', $reviews);
         $this->smarty->assign('cantidad', $cantidad);
@@ -22,6 +23,7 @@ class ReviewsView {
         $this->smarty->display('templates/printAllReviews.tpl');
     }
 
+    //imprime la descripción de una categoría y sus respectivas reviews
     function printReviewsByCategory($reviews, $cantidad, $categoria) {
         $this->smarty->assign('reviews', $reviews);
         $this->smarty->assign('cantidad', $cantidad);
@@ -30,11 +32,13 @@ class ReviewsView {
         $this->smarty->display('templates/printReviewsByCategory.tpl');
     }
 
+    //imprime en detalle una review
     function printReview($review) {
         $this->smarty->assign('review', $review);
         $this->smarty->display('templates/printDetail.tpl');
     }
 
+    //imprime un error que le llegue por parámetro
     function showError($msg) {
         $this->smarty->assign('msg', $msg);
         $this->smarty->display('templates/error.tpl');
