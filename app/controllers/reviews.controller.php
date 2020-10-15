@@ -24,6 +24,9 @@ class ReviewsController {
     }
 
     function showReviews() {
+        session_start();
+        var_dump($_SESSION);
+        die();
         $reviews = $this->model->getAll();
         $cantidad = count($reviews);
 
