@@ -121,6 +121,8 @@ class ReviewsController {
             $this->model->remove($review->id);
         }
         $this->categoriesModel->removeCategory($id);
+    }
+
     function showEditCategory($id) {
         $category = $this->categoriesModel->getById($id);
         if (!$category) {

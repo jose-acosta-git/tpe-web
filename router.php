@@ -77,6 +77,11 @@ switch ($params[0]) {
         $controller = new ReviewsController();
         $controller->editCategory($params[1]);
         break;
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
+        break;  
+    
     default:
         header("HTTP/1.0 404 Not Found");
         echo('404 Page not found');
