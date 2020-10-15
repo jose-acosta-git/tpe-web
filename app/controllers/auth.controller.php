@@ -44,9 +44,8 @@ class AuthController {
         }
         else {
             $this->authHelper->login($user);
-            header("Location: " . BASE_URL . 'listar');
+            header("Location: " . BASE_URL . 'home');
         }
-        
         
     }
 
