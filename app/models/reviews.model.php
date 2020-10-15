@@ -57,4 +57,5 @@ class ReviewsModel {
         $query->execute([$title, $author, $review, $category, $id]);
     }
 
+    
 }

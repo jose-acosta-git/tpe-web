@@ -18,9 +18,13 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             {foreach from=$categories item=category}
                 <a class="dropdown-item " href="filtrar/{$category->id}">{$category->name}</a> 
-                <button class="btn btn-primary btn-sm" >Editar</button> 
-                <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                <button class="btn btn-primary btn-sm">Editar</button> 
+                <a class='btn btn-danger btn-sm' href="eliminar-categoria/{$category->id}">Eliminar</a>
             {{/foreach}}
+                <div class="alert alert-danger mt-2 mb-0" role="alert">
+                    Advertencia
+                </div>
+            </div>
         </li>
         </ul>
     </div>
@@ -31,10 +35,11 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Admin
             </a>
-            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu dropdown-menu-lg-right mr-0" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item">Login</a>
                 <a class="dropdown-item">Agregar review o categoría</a>
                 <a class="dropdown-item">Logout</a>
+            </div>
         </li>
         </ul>
     </div>

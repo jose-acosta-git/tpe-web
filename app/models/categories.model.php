@@ -36,4 +36,10 @@ class CategoriesModel {
         $query->execute([$name, $description]);
     }
 
+    function removeCategory($id){
+        $query = $this->db->prepare('DELETE FROM categories WHERE id = ?');
+        $query->execute([$id]);
+        var_dump($id);
+        die();
+    }
 }

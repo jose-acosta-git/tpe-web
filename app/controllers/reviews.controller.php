@@ -114,4 +114,13 @@ class ReviewsController {
 
         header("Location: " . BASE_URL . "listar");
     }
+
+    function deleteCategory($id){
+        $reviews = $this->model->getByCategory($id);
+        foreach ($reviews as $review) {
+            $this->model->remove($review->id);
+        }
+        $this->categoriesModel->removeCategory($id);
+        header("Location: " . BASE_URL . "listar");
+    }
 }
