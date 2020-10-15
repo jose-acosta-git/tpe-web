@@ -69,6 +69,7 @@ switch ($params[0]) {
     case 'eliminar-categoria':
         $controller = new ReviewsController();
         $controller->deleteCategory($params[1]);
+        break;
     case 'editar-categoria':
         $controller = new ReviewsController();
         $controller->showEditCategory($params[1]);
