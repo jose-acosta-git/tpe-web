@@ -35,17 +35,17 @@
 {/if}
 
 {if isset($categoria)}
-    <form class="col align-self-center" method="POST" action="insertarCat">
-        <h3>Agregar categoría</h3>
+    <form class="col align-self-center" method="POST" action="editCategory/{$categoria->id}">
+        <h3>Editar categoría</h3>
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input class="form-control" type="text" placeholder="Ej: Aventura" name="name">
+            <input class="form-control" type="text" placeholder="Ej: Aventura" name="name" value="{$categoria->name}">
         </div>
         <div class="form-group">
             <label for="description">Descripción</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            <textarea class="form-control" id="description" name="description" rows="3">{$categoria->description}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Agregar</button>
+        <button type="submit" class="btn btn-primary">Editar</button>
     </form>
 {/if}
 

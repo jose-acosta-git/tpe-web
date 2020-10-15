@@ -69,6 +69,13 @@ switch ($params[0]) {
     case 'eliminar-categoria':
         $controller = new ReviewsController();
         $controller->deleteCategory($params[1]);
+    case 'editar-categoria':
+        $controller = new ReviewsController();
+        $controller->showEditCategory($params[1]);
+        break;
+    case 'editCategory':
+        $controller = new ReviewsController();
+        $controller->editCategory($params[1]);
         break;
     default:
         header("HTTP/1.0 404 Not Found");
