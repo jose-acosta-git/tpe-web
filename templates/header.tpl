@@ -12,7 +12,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Categorias
                 </a>
-                <div class="dropdown-menu w-75" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     {foreach from=$categories item=category}
                         <section class="row container my-1">
                             <a class="dropdown-item col-4" href="filtrar/{$category->id}">{$category->name}</a> 

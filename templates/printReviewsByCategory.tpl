@@ -10,3 +10,5 @@
 </div>
 
 {include 'printReviews.tpl'}
+
+{include 'footer.tpl'}
