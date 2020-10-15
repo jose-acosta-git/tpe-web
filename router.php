@@ -1,5 +1,6 @@
 <?php
 include_once 'app/controllers/reviews.controller.php';
+include_once 'app/controllers/auth.controller.php';
 
 
 // defino la base url para la construccion de links con urls semánticas
@@ -56,6 +57,14 @@ switch ($params[0]) {
     case 'editReview':
         $controller = new ReviewsController();
         $controller->editReview($params[1]);
+        break;
+    case 'login':
+        $controller = new AuthController();
+        $controller->showLogin();
+        break;
+    case 'verify':
+        $controller = new AuthController();
+        $controller->loginUser();
         break;
     default:
         header("HTTP/1.0 404 Not Found");
