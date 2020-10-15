@@ -17,7 +17,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             {foreach from=$categories item=category}
-                <a class="dropdown-item" href="filtrar/{$category->id}">{$category->name}</a>
+                <a class="dropdown-item" href="filtrar/{$category->id}">{$category->name}  <button class="btn btn-primary btn-sm" >Editar</button> <button type="button" class="btn btn-danger btn-sm">Eliminar</button></a>
             {{/foreach}}
         </li>
         </ul>
