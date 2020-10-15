@@ -4,7 +4,7 @@
 <section class="row">
 
 {if isset($review)}
-    <form class="col" method="POST" action="editReview/{$review->id}">
+    <form class="col form-translucent" method="POST" action="editReview/{$review->id}">
         <h3>Editar reseña</h3>
         <div class="form-group">
             <label for="title">Título</label>
@@ -35,7 +35,7 @@
 {/if}
 
 {if isset($categoria)}
-    <form class="col align-self-center" method="POST" action="editCategory/{$categoria->id}">
+    <form class="col align-self-center form-translucent" method="POST" action="editCategory/{$categoria->id}">
         <h3>Editar categoría</h3>
         <div class="form-group">
             <label for="name">Nombre</label>

@@ -8,3 +8,13 @@ h1 {
     font-weight: bold;
     font-size: 50px;
 }
+
+.form-translucent {
+    background-color: black;
+    opacity: 90%;
+    padding: 10px;
+}
+
+form h3, form label {
+    color: white;
+}

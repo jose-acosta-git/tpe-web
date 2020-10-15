@@ -3,7 +3,7 @@
 
 <section class="row">
 
-  <form class="col" method="POST" action="insertReview">
+  <form class="col form-translucent" method="POST" action="insertReview">
     <h3>Agregar reseña</h3>
     <div class="form-group">
       <label for="title">Título</label>
@@ -28,7 +28,7 @@
      <button type="submit" class="btn btn-primary">Agregar</button>
   </form>
 
-  <form class="col align-self-center" method="POST" action="insertCategory">
+  <form class="col align-self-center form-translucent" method="POST" action="insertCategory">
     <h3>Agregar categoría</h3>
     <div class="form-group">
       <label for="name">Nombre</label>
