@@ -34,7 +34,7 @@ switch ($params[0]) {
         $controller = new ReviewsController();
         $controller->showDetail($params[1]);
         break;
-    case 'eliminar':
+    case 'eliminar-review':
         $controller = new ReviewsController();
         $controller->deleteReview($params[1]);
         break;
@@ -42,19 +42,19 @@ switch ($params[0]) {
         $controller = new ReviewsController();
         $controller->showForms();
         break;
-    case 'insertReview':
+    case 'insertar-review':
         $controller = new ReviewsController();
         $controller->addReview();
         break;
-    case 'insertCategory':
+    case 'insertar-categoria':
         $controller = new ReviewsController();
         $controller->addCategory();
         break;
-    case 'editarReview':
+    case 'editar-review':
         $controller = new ReviewsController();
         $controller->showEditReview($params[1]);
         break;
-    case 'editReview':
+    case 'edit-review':
         $controller = new ReviewsController();
         $controller->editReview($params[1]);
         break;
@@ -73,7 +73,7 @@ switch ($params[0]) {
         $controller = new ReviewsController();
         $controller->showEditCategory($params[1]);
         break;
-    case 'editCategory':
+    case 'edit-category':
         $controller = new ReviewsController();
         $controller->editCategory($params[1]);
         break;
@@ -81,7 +81,6 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->logout();
         break;  
-    
     default:
         header("HTTP/1.0 404 Not Found");
         echo('404 Page not found');

@@ -1,5 +1,5 @@
 </main>
-{if !isset($categoria)}
+{if !isset($categoria) && !isset($review)}
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="home">
         <img src="images/anime-world.png" height="30" class="d-inline-block align-top" alt="" loading="lazy">

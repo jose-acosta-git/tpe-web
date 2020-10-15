@@ -7,8 +7,8 @@
         {/if}
         <a href="detallar/{$review->id}" class="card-link btn btn-secondary btn-sm">Ver Reseña</a>
         {if isset($smarty.session.EMAIL_USER)}
-            <a href="eliminar/{$review->id}" class="card-link btn btn-secondary btn-sm">Eliminar</a>
-            <a href="editarReview/{$review->id}" class="card-link btn btn-secondary btn-sm">Editar</a>
+            <a href="eliminar-review/{$review->id}" class="card-link btn btn-secondary btn-sm">Eliminar</a>
+            <a href="editar-review/{$review->id}" class="card-link btn btn-secondary btn-sm">Editar</a>
         {/if}
     </div>
 </div>
