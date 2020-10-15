@@ -42,7 +42,7 @@
             <div class="dropdown-menu dropdown-menu-lg-right mr-0" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item">Login</a>
                 <a class="dropdown-item">Agregar review o categoría</a>
-                <a class="dropdown-item">Logout</a>
+                <a class="dropdown-item" href="logout/">Logout</a>
             </div>
         </li>
         </ul>

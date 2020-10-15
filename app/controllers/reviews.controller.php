@@ -138,7 +138,7 @@ class ReviewsController {
         $this->categoriesModel->removeCategory($id);
 
     }
-    
+
     function showEditCategory($id) {
         $this->authHelper->checkLogged();
 
