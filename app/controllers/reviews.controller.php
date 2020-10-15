@@ -137,6 +137,7 @@ class ReviewsController {
         }
         $this->categoriesModel->removeCategory($id);
 
+        header("Location: " . BASE_URL . "listar");
     }
 
     function showEditCategory($id) {
