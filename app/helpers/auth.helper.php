@@ -15,7 +15,7 @@ class AuthHelper {
     function checkLogged() {
         if (!isset($_SESSION['ID_USER'])) {
             header("Location: " . BASE_URL . "login");
-            die(); 
+            die();
         }
     }
     

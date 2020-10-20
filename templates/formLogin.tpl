@@ -5,11 +5,11 @@
   <form method="POST" action="verify" class="col form-translucent">
     <div class="form-group">
       <label for="exampleInputEmail1">Correo electrónico</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="password" name="password">
+      <input type="password" class="form-control" id="password" name="password" required>
     </div>
     {if $error}
       <div class="alert alert-danger">
