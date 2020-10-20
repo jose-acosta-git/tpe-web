@@ -4,11 +4,11 @@
 <section class="container justify-content-center">
   <form method="POST" action="verify" class="col form-translucent">
     <div class="form-group">
-      <label for="exampleInputEmail1">Correo electrónico</label>
+      <label for="exampleInputEmail1" class="texto-blanco">Correo electrónico</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
+      <label for="exampleInputPassword1" class="texto-blanco">Password</label>
       <input type="password" class="form-control" id="password" name="password" required>
     </div>
     {if $error}
