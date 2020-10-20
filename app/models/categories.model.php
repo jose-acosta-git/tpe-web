@@ -17,9 +17,9 @@ class CategoriesModel {
         $query = $this->db->prepare('SELECT id, name FROM categories');
         $query->execute();
 
-        $reviews = $query->fetchAll(PDO::FETCH_OBJ);
+        $categories = $query->fetchAll(PDO::FETCH_OBJ);
 
-        return $reviews;
+        return $categories;
     }
 
     //trae una categoría especifica de la db, dada la id
@@ -27,9 +27,9 @@ class CategoriesModel {
         $query = $this->db->prepare('SELECT * FROM categories WHERE id = ?');
         $query->execute([$id]);
 
-        $review = $query->fetch(PDO::FETCH_OBJ);
+        $category = $query->fetch(PDO::FETCH_OBJ);
 
-        return $review;
+        return $category;
     }
 
     //inserta una categoría a la db

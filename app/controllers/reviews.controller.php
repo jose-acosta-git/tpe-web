@@ -147,11 +147,8 @@ class ReviewsController {
     function deleteCategory($id){
         $this->authHelper->checkLogged();
 
-        $reviews = $this->model->getByCategory($id);
         //elimina todas las reviews de esa categoria de la db
-        foreach ($reviews as $review) {
-            $this->model->remove($review->id);
-        }
+        $this->model->removeAllByCategory($id);
         //elimina la categoria de la db
         $this->categoriesModel->removeCategory($id);
 

@@ -56,6 +56,11 @@ class ReviewsModel {
         $query->execute([$id]);
     }
 
+    function removeAllByCategory($id) {
+        $query = $this->db->prepare('DELETE reviews.* FROM reviews WHERE id_category = ?');
+        $query->execute([$id]);
+    }
+
     //modifica una review de la db
     function modify($title, $author, $review, $category, $id) {
         $query = $this->db->prepare('UPDATE reviews SET title=?, author=?, review=?, id_category=? WHERE reviews.id=?');
