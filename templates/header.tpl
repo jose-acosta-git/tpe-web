@@ -45,7 +45,7 @@
                         <a class="dropdown-item" href="agregar">Agregar review o categoría</a>
                         <a class="dropdown-item" href="logout/">Logout</a>
                     {else}
-                        <a class="dropdown-item" href="login">Login</a>
+                        <a class="dropdown-item" href="show-login">Login</a>
                     {/if}
                 </div>
             </li>

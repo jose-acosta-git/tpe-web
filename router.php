@@ -58,11 +58,11 @@ switch ($params[0]) {
         $controller = new ReviewsController();
         $controller->editReview($params[1]);
         break;
-    case 'login':
+    case 'show-login':
         $controller = new AuthController();
         $controller->showLogin();
         break;
-    case 'verify':
+    case 'login':
         $controller = new AuthController();
         $controller->loginUser();
         break;
