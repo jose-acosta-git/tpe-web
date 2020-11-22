@@ -43,6 +43,7 @@
                 <div class="dropdown-menu dropdown-menu-lg-right mr-0" aria-labelledby="navbarDropdownMenuLink">
                     {if (isset($smarty.session.EMAIL_USER) && ($smarty.session.ADMIN))}
                         <a class="dropdown-item" href="agregar">Agregar review o categoría</a>
+                        <a class="dropdown-item" href="logout/">Moderar</a>
                         <a class="dropdown-item" href="logout/">Logout</a>
                     {else if isset($smarty.session.EMAIL_USER)}
                         <a class="dropdown-item" href="logout/">Logout</a>

@@ -24,4 +24,13 @@ class UserModel {
         $query->execute([$email, $password]);
         return $this->db->lastInsertId();
     }
+
+    function getAll() {
+        $query = $this->db->prepare('SELECT id, email, admin FROM users');
+        $query->execute();
+
+        $users = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $users;
+    }
 }

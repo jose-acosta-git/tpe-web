@@ -2,7 +2,7 @@
 include_once 'app/models/reviews.model.php';
 include_once 'app/models/categories.model.php';
 include_once 'app/views/reviews.view.php';
-include_once 'app/views/admin.view.php';
+include_once 'app/views/users.view.php';
 include_once 'app/helpers/categories.helper.php';
 
 class ReviewsController {
@@ -12,7 +12,7 @@ class ReviewsController {
     private $categoriesModel;
     private $categoriesHelper;
     private $categories;
-    private $adminView;
+    private $usersView;
     private $authHelper;
 
     function __construct() {
@@ -21,7 +21,7 @@ class ReviewsController {
         $this->categories = $this->categoriesHelper->getAll();
         $this->view = new ReviewsView($this->categories);
         $this->categoriesModel = new CategoriesModel();
-        $this->adminView = new AdminView($this->categories);
+        $this->usersView = new UsersView($this->categories);
         $this->authHelper = new AuthHelper();
     }
 
@@ -62,7 +62,7 @@ class ReviewsController {
     //muestra los formularios de alta
     function showForms() {
         $this->authHelper->checkLogged();
-        $this->adminView->printForms();
+        $this->usersView->printForms();
     }
 
     //agrega una review a la db
@@ -120,7 +120,7 @@ class ReviewsController {
             $this->view->showError("La reseña no existe");
             die();
         }
-        $this->adminView->editReview($review);
+        $this->usersView->editReview($review);
     }
 
     //edita una review de la db
@@ -165,7 +165,7 @@ class ReviewsController {
             $this->view->showError("La categoría no existe");
             die();
         }
-        $this->adminView->editCategory($category);
+        $this->usersView->editCategory($category);
     }
 
     //edita una categoria de la db

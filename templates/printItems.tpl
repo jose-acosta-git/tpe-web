@@ -4,7 +4,7 @@
 
 <section class="container">
 
-    {foreach from=$reviews item=review}
+    {foreach from=$items item=item}
 
         {if $i % 2 == 0}
             {if $i != 0}
@@ -17,7 +17,11 @@
         {else}
             <div class="col" style="width: 18rem;"></div>
         {/if}
-        {include 'cardReview.tpl'}
+        {if ($itemType == 'reviews')}
+            {include 'cardReview.tpl'}
+        {else}
+            {include 'cardUser.tpl'}
+        {/if}
         {if (($i+1) == $cantidad) && ($cantidad % 2 != 0)}
             <div class="col" style="width: 18rem;"></div>
         {/if}

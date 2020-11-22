@@ -9,6 +9,6 @@
   </div>
 </div>
 
-{include 'printReviews.tpl'}
+{include 'printItems.tpl'}
 
 {include 'footer.tpl'}

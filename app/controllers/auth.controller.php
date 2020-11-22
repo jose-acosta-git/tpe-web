@@ -1,6 +1,6 @@
 <?php
 
-include_once 'app/views/admin.view.php';
+include_once 'app/views/users.view.php';
 include_once 'app/helpers/categories.helper.php';
 include_once 'app/helpers/auth.helper.php';
 include_once 'app/models/user.model.php';
@@ -17,7 +17,7 @@ class AuthController {
         $this->categoriesHelper = new CategoriesHelper();
         $this->categories = $this->categoriesHelper->getAll();
         $this->model = new UserModel();
-        $this->view = new AdminView($this->categories);
+        $this->view = new UsersView($this->categories);
         $this->authHelper = new AuthHelper();
     }
 

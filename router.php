@@ -1,6 +1,7 @@
 <?php
 include_once 'app/controllers/reviews.controller.php';
 include_once 'app/controllers/auth.controller.php';
+include_once 'app/controllers/users.controller.php';
 
 
 // defino la base url para la construccion de links con urls semánticas
@@ -89,6 +90,10 @@ switch ($params[0]) {
     case 'register':
         $controller = new AuthController();
         $controller->verifyRegister();
+        break;
+    case 'administrar':
+        $controller = new UsersController();
+        $controller->showUsers();
         break;
     default:
         header("HTTP/1.0 404 Not Found");

@@ -1,7 +1,7 @@
 <?php
 include_once 'libs/smarty/libs/Smarty.class.php'; 
 
-class AdminView {
+class UsersView {
 
     private $smarty;
 
@@ -41,4 +41,11 @@ class AdminView {
         $this->smarty->display('templates/formUser.tpl');
     }
 
+    function printUsers($users, $cantidad){
+        $this->smarty->assign('items', $users);
+        $this->smarty->assign('itemType', 'users');
+        $this->smarty->assign('cantidad', $cantidad);
+        $this->smarty->assign('titulo', 'Usuarios');
+        $this->smarty->display('templates/printAll.tpl');
+    }
 }
