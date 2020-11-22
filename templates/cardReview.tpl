@@ -6,7 +6,7 @@
         <p class="card-text">{$review->name_category}</p>
         {/if}
         <a href="detallar/{$review->id}" class="card-link btn btn-secondary btn-sm">Ver Reseña</a>
-        {if isset($smarty.session.EMAIL_USER)}
+        {if (isset($smarty.session.EMAIL_USER) && ($smarty.session.ADMIN))}
             <a href="eliminar-review/{$review->id}" class="card-link btn btn-secondary btn-sm">Eliminar</a>
             <a href="editar-review/{$review->id}" class="card-link btn btn-secondary btn-sm">Editar</a>
         {/if}

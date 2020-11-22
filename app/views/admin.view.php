@@ -24,13 +24,21 @@ class AdminView {
     //imprime el formulario de login
     function printFormLogin($error = null) {
         $this->smarty->assign('error', $error);
-        $this->smarty->display('templates/formLogin.tpl');
+        $this->smarty->assign('accion', 'login');
+        $this->smarty->display('templates/formUser.tpl');
     }
 
     //imprime el formulario para editar categorias
     function editCategory($category) {
         $this->smarty->assign('categoria', $category);
         $this->smarty->display('templates/formsEdit.tpl');
+    }
+
+    //imprime el formulario de registro
+    function printFormRegister($error = null) {
+        $this->smarty->assign('error', $error);
+        $this->smarty->assign('accion', 'register');
+        $this->smarty->display('templates/formUser.tpl');
     }
 
 }

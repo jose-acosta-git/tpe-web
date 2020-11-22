@@ -19,13 +19,13 @@
                     {foreach from=$categories item=category}
                         <section class="row container my-1">
                             <a class="dropdown-item col-4" href="filtrar/{$category->id}">{$category->name}</a> 
-                            {if isset($smarty.session.EMAIL_USER)}
+                            {if (isset($smarty.session.EMAIL_USER) && ($smarty.session.ADMIN)) }
                                 <a class='btn btn-danger btn-sm col-3 mx-1' href="eliminar-categoria/{$category->id}">Eliminar</a>
                                 <a class='btn btn-primary btn-sm col-3 mx-1' href="editar-categoria/{$category->id}">Editar</a>
                             {/if}
                         </section>
                     {{/foreach}}
-                    {if isset($smarty.session.EMAIL_USER)}
+                    {if (isset($smarty.session.EMAIL_USER) && ($smarty.session.ADMIN))}
                         <div class="alert alert-danger mt-2 mb-0" role="alert">
                             ¡Advertencia!: Si eliminas una categoría, también se borrarán todas las reviews pertencientes a la misma ¯\_( ͡ಠ ● ͡ಠ)_/¯
                         </div>
@@ -35,17 +35,20 @@
             <li class="nav-item dropdown ml-auto">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {if isset($smarty.session.EMAIL_USER)}
-                Admin (logged)
+                Usuario (logged)
                 {else}
-                Admin
+                Usuario
                 {/if}
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg-right mr-0" aria-labelledby="navbarDropdownMenuLink">
-                    {if isset($smarty.session.EMAIL_USER)}
+                    {if (isset($smarty.session.EMAIL_USER) && ($smarty.session.ADMIN))}
                         <a class="dropdown-item" href="agregar">Agregar review o categoría</a>
+                        <a class="dropdown-item" href="logout/">Logout</a>
+                    {else if isset($smarty.session.EMAIL_USER)}
                         <a class="dropdown-item" href="logout/">Logout</a>
                     {else}
                         <a class="dropdown-item" href="show-login">Login</a>
+                        <a class="dropdown-item" href="show-register">Registrarse</a>
                     {/if}
                 </div>
             </li>

@@ -9,7 +9,7 @@
   <p>{$review->review}</p>
   <section>
     <a class="btn btn-primary btn-lg" href="filtrar/{$review->id_category}" role="button">Mas reseñas de esta categoria</a>
-    {if isset($smarty.session.EMAIL_USER)}
+    {if (isset($smarty.session.EMAIL_USER) && ($smarty.session.ADMIN))}
       <a href="eliminar-review/{$review->id}" class="card-link btn btn-danger btn-lg mx-4">Eliminar</a>
       <a href="editar-review/{$review->id}" class="card-link btn btn-primary btn-lg mx-auto">Editar</a>
     {/if}

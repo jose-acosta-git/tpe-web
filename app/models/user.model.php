@@ -18,4 +18,10 @@ class UserModel {
         $user = $query->fetch(PDO::FETCH_OBJ);
         return $user;
     }
+
+    function add($email, $password) {
+        $query = $this->db->prepare('INSERT INTO users (email, password) VALUES (?,?)');
+        $query->execute([$email, $password]);
+        return $this->db->lastInsertId();
+    }
 }

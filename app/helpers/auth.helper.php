@@ -9,6 +9,7 @@ class AuthHelper {
     function login($user) {
         $_SESSION['ID_USER'] = $user->id;
         $_SESSION['EMAIL_USER'] = $user->email;
+        $_SESSION['ADMIN'] = $user->admin;
     }
 
     //verifica si el usuario esta logeado

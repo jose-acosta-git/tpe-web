@@ -58,4 +58,49 @@ class AuthController {
     function logout() {
         $this->authHelper->logout();
     }
+
+    //muestra el formulario de registro
+    function showRegister() {
+        $this->view->printFormRegister();
+    }
+
+    //verifica datos y registra al usuario
+    function verifyRegister() {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        //verifico datos ingresados
+        if (empty($email) || empty($password)) {
+            $this->view->printFormRegister("Faltan datos obligatorios");
+            die();
+        }
+
+        //Verifica que no haya un usario con ese mail
+        if ($this->model->getByEmail($email)) {
+            $this->view->printFormRegister("El email ya está en uso");
+            die();
+        }
+        
+        $this->registerUser($email, $password);
+    }
+
+    //encripta la contraseña, registra al usuario y lo logea
+    function registerUser($email, $password) {
+
+        $password = password_hash($password ,PASSWORD_DEFAULT);
+
+        $id = $this->model->add($email, $password);
+
+        if (!$id) {
+            $this->view->printFormRegister("Ocurrió un error");
+        } else {
+            $user = (object) [
+                'id' => $id,
+                'email' => $email,
+                'admin' => 0,
+              ];
+            $this->authHelper->login($user);
+            header("Location: " . BASE_URL . 'home');
+        }
+    }
 }
