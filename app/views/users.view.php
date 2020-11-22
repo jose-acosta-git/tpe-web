@@ -48,4 +48,9 @@ class UsersView {
         $this->smarty->assign('titulo', 'Usuarios');
         $this->smarty->display('templates/printAll.tpl');
     }
+
+    function showError($msg) {
+        $this->smarty->assign('msg', $msg);
+        $this->smarty->display('templates/error.tpl');
+    }
 }

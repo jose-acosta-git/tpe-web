@@ -11,7 +11,7 @@ class UsersController {
     private $categories;
     private $authHelper;
 
-    function __construct(){
+    function __construct() {
         $this->categoriesHelper = new CategoriesHelper();
         $this->categories = $this->categoriesHelper->getAll();
         $this->model = new UserModel();
@@ -19,9 +19,39 @@ class UsersController {
         $this->authHelper = new AuthHelper();
     }
 
-    function showUsers(){
+    function showUsers() {
         $users = $this->model->getAll();
         $cantidad = count($users);
         $this->view->printUsers($users, $cantidad);
+    }
+
+    function modifyUser($id) {
+        // verifica si existe
+        $user = $this->model->getById($id);
+        if (!$user) {
+            $this->view->showError('No existe el usuario');
+            die();
+        }
+
+        if ($user->admin) {
+            $this->model->changeRole(0, $id);
+        } else {
+            $this->model->changeRole(1, $id);
+        }
+
+        header("Location: " . BASE_URL . "administrar");
+    }
+
+    function removeUser($id) {
+        // verifica si existe
+        $user = $this->model->getById($id);
+        if (!$user) {
+            $this->view->showError('No existe el usuario');
+            die();
+        }
+
+        $this->model->remove($id);
+
+        header("Location: " . BASE_URL . "administrar");
     }
 }

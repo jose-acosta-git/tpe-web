@@ -8,11 +8,7 @@
                 Usuario
             {/if}
         </h6>
-        {if ($item->admin)}
-            <a href="descender/{$item->id}" class="card-link btn btn-secondary btn-sm">Quitar permisos de administración</a>
-        {else}
-            <a href="ascender/{$item->id}" class="card-link btn btn-secondary btn-sm">Asignar permisos de administración</a>
-        {/if}
+        <a href="modificar-rol/{$item->id}" class="card-link btn btn-secondary btn-sm">Cambiar permisos de administración</a>
         <a href="eliminar-usuario/{$item->id}" class="card-link btn btn-secondary btn-sm">Eliminar usuario</a>
     </div>
 </div>

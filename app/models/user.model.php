@@ -29,8 +29,23 @@ class UserModel {
         $query = $this->db->prepare('SELECT id, email, admin FROM users');
         $query->execute();
 
-        $users = $query->fetchAll(PDO::FETCH_OBJ);
-        
-        return $users;
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    function getById($id) {
+        $query = $this->db->prepare('SELECT * FROM users WHERE id = ?');
+        $query->execute([$id]);
+
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+    function changeRole($admin, $id) {
+        $query = $this->db->prepare('UPDATE users SET admin=? WHERE id = ?');
+        $query->execute([$admin, $id]);
+    }
+
+    function remove($id){
+        $query = $this->db->prepare('DELETE FROM users WHERE id = ?');
+        $query->execute([$id]);
     }
 }
