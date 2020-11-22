@@ -1,4 +1,4 @@
-<div class="card col text-white bg-dark align-self-center" style="width: 18rem; height: 50%;">
+<div class="card text-white bg-dark align-self-center" style="width: 25rem; height: 50%;">
     <div class="card-body">
         <h5 class="card-title">{$item->title}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{$item->author}</h6>
