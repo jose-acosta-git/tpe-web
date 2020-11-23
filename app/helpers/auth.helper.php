@@ -13,8 +13,8 @@ class AuthHelper {
     }
 
     //verifica si el usuario esta logeado
-    function checkLogged() {
-        if (!isset($_SESSION['ID_USER'])) {
+    function checkLogged($admin) {
+        if (!isset($_SESSION['ID_USER']) || ($_SESSION['ADMIN'] != $admin)) {
             header("Location: " . BASE_URL . "show-login");
             die();
         }
