@@ -1,7 +1,7 @@
 <?php
 include_once 'app/helpers/db.helper.php';
 
-class UserModel {
+class CommentsModel {
     private $db;
     private $dbHelper;
 

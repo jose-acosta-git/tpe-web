@@ -10,7 +10,7 @@ $router->addRoute('comments', 'POST', 'ApiCommentController', 'add');
 $router->addRoute('comments/:REVIEW', 'GET', 'ApiCommentController', 'getByReview');
 $router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'remove');
 
-$router->setDefaultRoute('ApiTaskController','show404');
+$router->setDefaultRoute('ApiCommentController','show404');
 
 // rutea
 $router->route($_REQUEST['resource'],  $_SERVER['REQUEST_METHOD']);
