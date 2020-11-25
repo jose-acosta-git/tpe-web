@@ -6,9 +6,11 @@ require_once 'app/api/api-comments.controller.php';
 $router = new Router();
 
 // armo la tabla de ruteo
-$router->addRoute('tareas', 'GET', 'ApiTaskController', 'getAll');
-$router->addRoute('tareas/:ID', 'GET', 'ApiTaskController', 'get');
-$router->addRoute('tareas/:ID', 'DELETE', 'ApiTaskController', 'delete');
+$router->addRoute('comments', 'POST', 'ApiCommentController', 'add');
+$router->addRoute('comments/:REVIEW', 'GET', 'ApiCommentController', 'getByReview');
+$router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'remove');
+
+$router->setDefaultRoute('ApiTaskController','show404');
 
 // rutea
 $router->route($_REQUEST['resource'],  $_SERVER['REQUEST_METHOD']);
