@@ -1,6 +1,6 @@
 <?php
 
-include_once 'app/models/user.model.php';
+include_once 'app/models/users.model.php';
 include_once 'app/views/users.view.php';
 
 class UsersController {
@@ -14,7 +14,7 @@ class UsersController {
     function __construct() {
         $this->categoriesHelper = new CategoriesHelper();
         $this->categories = $this->categoriesHelper->getAll();
-        $this->model = new UserModel();
+        $this->model = new UsersModel();
         $this->view = new UsersView($this->categories);
         $this->authHelper = new AuthHelper();
     }

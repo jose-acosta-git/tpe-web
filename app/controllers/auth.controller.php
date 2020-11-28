@@ -3,7 +3,7 @@
 include_once 'app/views/users.view.php';
 include_once 'app/helpers/categories.helper.php';
 include_once 'app/helpers/auth.helper.php';
-include_once 'app/models/user.model.php';
+include_once 'app/models/users.model.php';
 
 class AuthController {
 
@@ -16,7 +16,7 @@ class AuthController {
     function __construct(){
         $this->categoriesHelper = new CategoriesHelper();
         $this->categories = $this->categoriesHelper->getAll();
-        $this->model = new UserModel();
+        $this->model = new UsersModel();
         $this->view = new UsersView($this->categories);
         $this->authHelper = new AuthHelper();
     }
