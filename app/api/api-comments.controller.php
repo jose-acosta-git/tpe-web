@@ -56,4 +56,17 @@ class ApiCommentController {
             $this->view->response('La review solicitada no ta', 404);
         }
     }
+
+    function remove($params=null) {
+        $id = $params[':ID'];
+
+        $comment = $this->model->get($id);
+
+        if ($comment) {
+            $this->model->remove($id);
+            $this->view->response('Se removio el comentario ' $id ' con exito', 200);
+        } else {
+            $this->view->response('El comentario solicitado no ta', 404);
+        }
+    }
 }
