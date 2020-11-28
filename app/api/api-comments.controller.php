@@ -6,6 +6,7 @@ include_once 'app/api/api.view.php';
 class ApiCommentController {
     private $model;
     private $view;
+    private $data;
 
     function __construct() {
         $this->model = new CommentsModel();
