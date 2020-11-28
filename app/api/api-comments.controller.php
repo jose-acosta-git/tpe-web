@@ -64,7 +64,7 @@ class ApiCommentController {
 
         if ($comment) {
             $this->model->remove($id);
-            $this->view->response('Se removio el comentario ' $id ' con exito', 200);
+            $this->view->response('Se removio el comentario ' . $id . ' con exito', 200);
         } else {
             $this->view->response('El comentario solicitado no ta', 404);
         }
