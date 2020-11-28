@@ -28,6 +28,11 @@ class ApiCommentController {
     function add($params=null) {
         $body = $this->getData();
 
+        if (!$this->verify($body)) {
+            $this->view->response('Faltan datos obligatorios', 500);
+            die();
+        }
+
         $comment       = $body->comment;
         $score         = $body->score;
         $id_review     = $body->id_review;
@@ -41,6 +46,14 @@ class ApiCommentController {
         }
         else { 
             $this->view->response("No se pudo insertar", 500);
+        }
+    }
+
+    function verify($body) {
+        if ((isset($body->comment)) && (isset($body->score)) && (isset($body->id_review)) && (isset($body->id_user))) {
+            return true;
+        } else {
+            return false;
         }
     }
 
