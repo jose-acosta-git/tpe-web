@@ -22,4 +22,10 @@ class CommentsModel {
         $query->execute([$comment, $score, $id_review, $id_user]);
         return $this->db->lastInsertId();
     }
+
+    function getByReview($review) {
+        $query = $this->db->prepare('SELECT * FROM comments WHERE id_review = ?');
+        $query->execute([$review]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
 }

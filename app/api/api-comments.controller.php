@@ -2,14 +2,17 @@
 
 include_once 'app/models/comments.model.php';
 include_once 'app/api/api.view.php';
+include_once 'app/models/reviews.model.php';
 
 class ApiCommentController {
     private $model;
+    private $reviewsModel;
     private $view;
     private $data;
 
     function __construct() {
         $this->model = new CommentsModel();
+        $this->reviewsModel = new ReviewsModel();
         $this->view = new APIView();
         $this->data = file_get_contents("php://input");
     }
@@ -23,7 +26,6 @@ class ApiCommentController {
     }
 
     function add($params=null) {
-
         $body = $this->getData();
 
         $comment       = $body->comment;
@@ -39,6 +41,19 @@ class ApiCommentController {
         }
         else { 
             $this->view->response("No se pudo insertar", 500);
+        }
+    }
+
+    function getByReview($params=null) {
+        $id_review = $params[':REVIEW'];
+
+        $review = $this->reviewsModel->getById($id_review);
+
+        if ($review) {
+            $comments = $this->model->getByReview($id_review);
+            $this->view->response($comments, 200);
+        } else {
+            $this->view->response('La review solicitada no ta', 404);
         }
     }
 }
