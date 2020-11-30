@@ -16,4 +16,12 @@
   </section>
 </div>
 
+{include 'vue/comments.vue'}
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<!-- incluyo JS para CSR de comentarios -->
+<script src="js/comments.js"></script>
+
 {include 'footer.tpl'}
