@@ -2,12 +2,12 @@
 <div class="jumbotron mt-4">
     <h1 class="display-4">Comentarios</h1>
     <hr class="my-4">
-    <section>
+    <section class="mb-3">
         <form id="comment-form" class="">
             <h3>Comentar</h3>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Puntuación</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" name="select-score">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -17,11 +17,13 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Comentario</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" rows="3" name="input-comment"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Enviar comentario</button>
         </form>
     </section>
+
+    <hr class="my-4">
       
     <section id="app">
         <div v-for="comment in comments" class="card text-white bg-danger mb-3">

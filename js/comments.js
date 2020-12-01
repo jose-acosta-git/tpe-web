@@ -13,10 +13,7 @@ const app = new Vue({
 document.addEventListener('DOMContentLoaded', e => {
     getComments();
 
-    document.querySelector('#comment-form').addEventListener('submit', e => {
-        e.preventDefault();
-        addComment();
-    })
+    document.querySelector('#comment-form').addEventListener('submit', addComment);
 })
 
 async function getComments() {
@@ -29,6 +26,26 @@ async function getComments() {
     }
 }
 
-async function addComment() {
+async function addComment(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const comment = {
+        comment: formData.get('input-comment'),
+        score: formData.get('select-score'),
+        id_review: REVIEW,
+        id_user: sessionId,
+    }
 
+    try {
+        const response = await fetch('api/comments' , {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify(comment)
+        });
+
+        getComments();
+
+    } catch(e) {
+        console.log(e);
+    }
 }
