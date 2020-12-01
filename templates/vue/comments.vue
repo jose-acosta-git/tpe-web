@@ -25,7 +25,7 @@
       
     <section id="app">
         <div v-for="comment in comments" class="card text-white bg-danger mb-3">
-            <div class="card-header"> {{comment.id_user}} </div>
+            <div class="card-header"> {{comment.user_email}} </div>
             <div class="card-body">
             <h5 class="card-title">Puntuacion: {{comment.score}} </h5>
             <p class="card-text"> {{comment.comment}} </p>

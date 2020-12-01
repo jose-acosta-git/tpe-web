@@ -1,7 +1,7 @@
 "use strict"
 
 const PARAMS = window.location.pathname.split("/");
-const REVIEW = PARAMS[PARAMS.length-1]
+const REVIEW = PARAMS[PARAMS.length-1];
 
 const app = new Vue({
     el: "#app",

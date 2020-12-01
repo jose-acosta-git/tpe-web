@@ -24,7 +24,8 @@ class CommentsModel {
     }
 
     function getByReview($review) {
-        $query = $this->db->prepare('SELECT * FROM comments WHERE id_review = ?');
+        $query = $this->db->prepare('SELECT comments.*,users.email as user_email
+        FROM `comments` JOIN users ON (comments.id_user = users.id) WHERE id_review = ?');
         $query->execute([$review]);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
