@@ -2,6 +2,7 @@
 
 const PARAMS = window.location.pathname.split("/");
 const REVIEW = PARAMS[PARAMS.length-1];
+var sessionId;
 
 const app = new Vue({
     el: "#app",
@@ -13,7 +14,10 @@ const app = new Vue({
 document.addEventListener('DOMContentLoaded', e => {
     getComments();
 
-    document.querySelector('#comment-form').addEventListener('submit', addComment);
+    if (sessionId>0) {
+        document.querySelector('#comment-form').addEventListener('submit', addComment);
+    }
+    
 })
 
 async function getComments() {
