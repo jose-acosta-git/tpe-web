@@ -68,9 +68,10 @@ class AuthController {
     function verifyRegister() {
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $password2 = $_POST['password2'];
 
         //verifico datos ingresados
-        if (empty($email) || empty($password)) {
+        if (empty($email) || empty($password) || empty($password2)) {
             $this->view->printFormRegister("Faltan datos obligatorios");
             die();
         }
@@ -78,6 +79,11 @@ class AuthController {
         //Verifica que no haya un usario con ese mail
         if ($this->model->getByEmail($email)) {
             $this->view->printFormRegister("El email ya está en uso");
+            die();
+        }
+
+        if ($password != $password2) {
+            $this->view->printFormRegister("Las contraseñas ingresadas no coinciden");
             die();
         }
         
