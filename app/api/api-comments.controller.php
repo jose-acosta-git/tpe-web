@@ -38,9 +38,14 @@ class ApiCommentController {
         $id_review     = $body->id_review;
         $id_user       = $body->id_user;
 
-        $id = $this->model->insert($comment, $score, $id_review, $id_user);
+        if (($score >= 1) && ($score <=5)){
+            $id = $this->model->insert($comment, $score, $id_review, $id_user);
+        } else {
+            $this->view->response("Por favor ingrese una puntuacion del 1 al 5", 500);
+            die();
+        }
 
-        if ($id > 0) {
+        if ($id > 0){
             $comment = $this->model->get($id);
             $this->view->response($comment, 200);
         }
