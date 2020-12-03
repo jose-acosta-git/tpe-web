@@ -10,20 +10,18 @@ const app = new Vue({
     },
     methods: {
         removeComment(id) { 
-            console.log(id);
-            const response = await fetch('api/comments' , {
-                
+            fetch(`api/comments/${id}`, {
                 method: 'DELETE',
-            });
+            }).then(
+                getComments()
+            );
         }
     }
 });
 
 document.addEventListener('DOMContentLoaded', e => {
     getComments();
-
     if (sessionId>0) {
-        console.log('if');
         document.querySelector('#comment-form').addEventListener('submit', addComment);
     }
     
