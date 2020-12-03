@@ -80,9 +80,28 @@ class ReviewsController {
             die();
         }
 
-        $this->model->insert($title, $author, $review, $category);
+        if ($_FILES['image']['type'] == "image/jpg" || 
+            $_FILES['image']['type'] == "image/jpeg" || 
+            $_FILES['image']['type'] == "image/png" )
+        {
+            $realName = $this->uniqueSaveName($_FILES['image']['name'], $_FILES['image']['tmp_name']);
+            $this->model->insert($title, $author, $review, $category, $realName);
+        } else {
+            $this->model->insert($title, $author, $review, $category);
+        }
 
         header("Location: " . BASE_URL . "listar");
+    }
+
+    // Construye un nombre unico de archivo y ademas lo mueve a mi carpeta de imagenes
+    function uniqueSaveName($realName, $tempName) {
+        
+        $filePath = "images/" . uniqid("", true) . "." 
+            . strtolower(pathinfo($realName, PATHINFO_EXTENSION));
+
+        move_uploaded_file($tempName, $filePath);
+
+        return $filePath;
     }
 
     //agrega una categoria a la db
@@ -138,7 +157,15 @@ class ReviewsController {
             die();
         }
 
-        $this->model->modify($title, $author, $review, $category, $id);
+        if ($_FILES['image']['type'] == "image/jpg" || 
+            $_FILES['image']['type'] == "image/jpeg" || 
+            $_FILES['image']['type'] == "image/png" )
+        {
+            $realName = $this->uniqueSaveName($_FILES['image']['name'], $_FILES['image']['tmp_name']);
+            $this->model->modify($title, $author, $review, $category, $id, $realName);
+        } else {
+            $this->model->modify($title, $author, $review, $category, $id);
+        }
 
         header("Location: " . BASE_URL . "listar");
     }

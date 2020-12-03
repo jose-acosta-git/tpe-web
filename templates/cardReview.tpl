@@ -1,4 +1,11 @@
 <div class="card text-white bg-dark align-self-center" style="width: 25rem; height: 50%;">
+    <img
+    {if ($item->image == "")}
+        src="images/book-preset.png"
+    {else}
+        src="{$item->image}"
+    {/if}
+    class="card-img-top sm" alt="user">
     <div class="card-body">
         <h5 class="card-title">{$item->title}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{$item->author}</h6>

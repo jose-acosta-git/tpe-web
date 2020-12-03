@@ -45,9 +45,14 @@ class ReviewsModel {
     }
 
     //inserta una review a la db
-    function insert($title, $author, $review, $category) {
-        $query = $this->db->prepare('INSERT INTO reviews (title, author, review, id_category) VALUES (?,?,?,?)');
-        $query->execute([$title, $author, $review, $category]);
+    function insert($title, $author, $review, $category, $image = null) {
+        if ($image) {
+            $query = $this->db->prepare('INSERT INTO reviews (title, author, review, id_category, image) VALUES (?,?,?,?,?)');
+            $query->execute([$title, $author, $review, $category, $image]);
+        } else {
+            $query = $this->db->prepare('INSERT INTO reviews (title, author, review, id_category) VALUES (?,?,?,?)');
+            $query->execute([$title, $author, $review, $category]);
+        }
     }
 
     //elimina una review de la db
@@ -62,9 +67,14 @@ class ReviewsModel {
     }
 
     //modifica una review de la db
-    function modify($title, $author, $review, $category, $id) {
-        $query = $this->db->prepare('UPDATE reviews SET title=?, author=?, review=?, id_category=? WHERE reviews.id=?');
-        $query->execute([$title, $author, $review, $category, $id]);
+    function modify($title, $author, $review, $category, $id, $image = null) {
+        if ($image) {
+            $query = $this->db->prepare('UPDATE reviews SET title=?, image=?, author=?, review=?, id_category=? WHERE reviews.id=?');
+            $query->execute([$title, $image, $author, $review, $category, $id]);
+        } else {
+            $query = $this->db->prepare('UPDATE reviews SET title=?, author=?, review=?, id_category=? WHERE reviews.id=?');
+            $query->execute([$title, $author, $review, $category, $id]);
+        }
     }
 
     

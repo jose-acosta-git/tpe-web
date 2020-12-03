@@ -3,11 +3,15 @@
 
 <section>
 
-  <form class="col form-translucent" method="POST" action="insertar-review">
+  <form class="col form-translucent" method="POST" action="insertar-review" enctype="multipart/form-data">
     <h3 class="texto-blanco">Agregar reseña</h3>
     <div class="form-group">
       <label for="title" class="texto-blanco">Título</label>
       <input class="form-control" type="text" placeholder="Ej: One Piece" name="title" required>
+    </div>
+    <div class="form-group">    
+        <label class="text-white">Imagen</label>
+        <input type="file" name="image" id="imageToUpload" class="text-white">
     </div>
     <div class="form-group">
       <label for="title" class="texto-blanco">Autor</label>

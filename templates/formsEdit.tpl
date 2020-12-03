@@ -4,11 +4,15 @@
 <section class="row">
 
 {if isset($review)}
-    <form class="col form-translucent" method="POST" action="edit-review/{$review->id}">
+    <form class="col form-translucent" method="POST" action="edit-review/{$review->id}" enctype="multipart/form-data">
         <h3 class="texto-blanco">Editar reseña</h3>
         <div class="form-group">
             <label for="title" class="texto-blanco">Título</label>
             <input class="form-control" type="text" name="title" value="{$review->title}" required>
+        </div>
+        <div class="form-group">    
+            <label class="text-white">Imagen</label>
+            <input type="file" name="image" id="imageToUpload" class="text-white">
         </div>
         <div class="form-group">
             <label for="title" class="texto-blanco">Autor</label>
