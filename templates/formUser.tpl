@@ -12,9 +12,15 @@
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1" class="texto-blanco">Password</label>
+      <label for="password" class="texto-blanco">Password</label>
       <input type="password" class="form-control" id="password" name="password" required>
     </div>
+    {if $accion == 'register'}
+    <div class="form-group">
+      <label for="password2" class="texto-blanco">Repetir Password</label>
+      <input type="password" class="form-control" id="password2" name="password2" required>
+    </div>
+    {/if}
     {if $error}
       <div class="alert alert-danger">
           {$error}
