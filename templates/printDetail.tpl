@@ -18,12 +18,6 @@
 
 {include 'vue/comments.vue'}
 
-{if isset($smarty.session.ID_USER)}
-  <script>var sessionId = {$smarty.session.ID_USER};</script>
-{else}
-  <script>var sessionId = 0;</script>
-{/if}
-
 <!-- development version, includes helpful console warnings -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
