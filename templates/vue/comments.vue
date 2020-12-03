@@ -1,11 +1,8 @@
-{literal}
-<div class="jumbotron mt-4">
+<div id="comments-card" data-id_review="{$review->id}" class="jumbotron mt-4">
     <h1 class="display-4">Comentarios</h1>
     <hr class="my-4">
-{/literal}
 
 {if isset($smarty.session.ID_USER)}
-{literal}
     <section class="mb-3">
         <form id="comment-form" class="">
             <h3>Comentar</h3>
@@ -27,7 +24,6 @@
         </form>
     </section>
     <hr class="my-4">
-{/literal}
 {/if}
 {literal}
     <section id="app">

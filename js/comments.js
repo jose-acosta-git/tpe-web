@@ -1,7 +1,7 @@
 "use strict"
 
-const PARAMS = window.location.pathname.split("/");
-const REVIEW = PARAMS[PARAMS.length-1];
+const REVIEW = document.querySelector('#comments-card').dataset.id_review;
+const SESSION_ID = document.querySelector('head').dataset.id_user;
 
 const app = new Vue({
     el: "#app",
@@ -21,7 +21,7 @@ const app = new Vue({
 
 document.addEventListener('DOMContentLoaded', e => {
     getComments();
-    if (sessionId>0) {
+    if (SESSION_ID>0) {
         document.querySelector('#comment-form').addEventListener('submit', addComment);
     }
     
@@ -44,7 +44,7 @@ async function addComment(e) {
         comment: formData.get('input-comment'),
         score: formData.get('select-score'),
         id_review: REVIEW,
-        id_user: sessionId,
+        id_user: SESSION_ID,
     }
 
     try {
