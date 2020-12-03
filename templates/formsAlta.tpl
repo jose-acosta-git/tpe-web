@@ -1,7 +1,7 @@
 {include 'head.tpl'}
 {include 'header.tpl'}
 
-<section class="row">
+<section>
 
   <form class="col form-translucent" method="POST" action="insertar-review">
     <h3 class="texto-blanco">Agregar reseña</h3>
@@ -28,7 +28,7 @@
      <button type="submit" class="btn btn-primary">Agregar</button>
   </form>
 
-  <form class="col align-self-center form-translucent" method="POST" action="insertar-categoria">
+  <form class="col align-self-center form-translucent mt-4" method="POST" action="insertar-categoria">
     <h3 class="texto-blanco">Agregar categoría</h3>
     <div class="form-group">
       <label for="name" class="texto-blanco">Nombre</label>
@@ -38,7 +38,7 @@
       <label for="description" class="texto-blanco">Descripción</label>
       <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Agregar</button>
+    <button type="submit" class="btn btn-primary mt-4">Agregar</button>
   </form>
 
 </section>

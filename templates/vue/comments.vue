@@ -34,7 +34,11 @@
         <div v-for="comment in comments" class="card text-white bg-secondary mb-3">
             <div class="card-header d-flex justify-content-between align-middle"> 
                 <div class="py-2">{{comment.user_email}}</div> 
-                <button @click="removeComment(comment.id)" type="button" class="btn-remove btn btn-danger">Borrar</button>
+                {/literal}
+                {if (isset($smarty.session.EMAIL_USER) && ($smarty.session.ADMIN))}
+                    <button @click="removeComment(comment.id)" type="button" class="btn-remove btn btn-danger">Borrar</button>
+                {/if}
+                {literal}
             </div> 
             <div class="card-body">
             <h5 class="card-title">Puntuacion: {{comment.score}} </h5>

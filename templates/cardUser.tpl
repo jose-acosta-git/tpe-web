@@ -8,7 +8,9 @@
                 Usuario
             {/if}
         </h6>
-        <a href="modificar-rol/{$item->id}" class="card-link btn btn-secondary btn-sm">Cambiar permisos de administración</a>
-        <a href="eliminar-usuario/{$item->id}" class="card-link btn btn-secondary btn-sm">Eliminar usuario</a>
+        <div class="d-flex">
+            <a href="modificar-rol/{$item->id}" class="card-link btn btn-primary btn-sm">Cambiar permisos de administración</a>
+            <a href="eliminar-usuario/{$item->id}" class="card-link btn btn-danger btn-sm">Eliminar usuario</a>
+        </div>
     </div>
 </div>
