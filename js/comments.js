@@ -2,19 +2,28 @@
 
 const PARAMS = window.location.pathname.split("/");
 const REVIEW = PARAMS[PARAMS.length-1];
-var sessionId;
 
 const app = new Vue({
     el: "#app",
     data: {
         comments: [],
     },
+    methods: {
+        removeComment(id) { 
+            console.log(id);
+            const response = await fetch('api/comments' , {
+                
+                method: 'DELETE',
+            });
+        }
+    }
 });
 
 document.addEventListener('DOMContentLoaded', e => {
     getComments();
 
     if (sessionId>0) {
+        console.log('if');
         document.querySelector('#comment-form').addEventListener('submit', addComment);
     }
     
@@ -53,3 +62,4 @@ async function addComment(e) {
         console.log(e);
     }
 }
+

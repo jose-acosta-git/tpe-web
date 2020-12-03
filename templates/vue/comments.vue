@@ -31,8 +31,11 @@
 {/if}
 {literal}
     <section id="app">
-        <div v-for="comment in comments" class="card text-white bg-danger mb-3">
-            <div class="card-header"> {{comment.user_email}} </div>
+        <div v-for="comment in comments" class="card text-white bg-secondary mb-3">
+            <div class="card-header d-flex justify-content-between align-middle"> 
+                <div class="py-2">{{comment.user_email}}</div> 
+                <button @click="removeComment(comment.id)" type="button" class="btn-remove btn btn-danger">Borrar</button>
+            </div> 
             <div class="card-body">
             <h5 class="card-title">Puntuacion: {{comment.score}} </h5>
             <p class="card-text"> {{comment.comment}} </p>
