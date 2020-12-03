@@ -1,8 +1,9 @@
-<div id="comments-card" data-id_review="{$review->id}" class="jumbotron mt-4">
+<div id="app" data-id_review="{$review->id}" class="jumbotron mt-4">
     <h1 class="display-4">Comentarios</h1>
     <hr class="my-4">
 
 {if isset($smarty.session.ID_USER)}
+{literal}
     <section class="mb-3">
         <form id="comment-form" class="">
             <h3>Comentar</h3>
@@ -20,13 +21,15 @@
                 <label for="exampleFormControlTextarea1">Comentario</label>
                 <textarea class="form-control" rows="3" name="input-comment"></textarea>
             </div>
+            <div v-if="error" class="alert alert-danger"> {{error}} </div>
             <button type="submit" class="btn btn-primary">Enviar comentario</button>
         </form>
     </section>
     <hr class="my-4">
+{/literal}
 {/if}
 {literal}
-    <section id="app">
+    <section>
         <div v-for="comment in comments" class="card text-white bg-secondary mb-3">
             <div class="card-header d-flex justify-content-between align-middle"> 
                 <div class="py-2">{{comment.user_email}}</div> 

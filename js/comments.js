@@ -1,12 +1,13 @@
 "use strict"
 
-const REVIEW = document.querySelector('#comments-card').dataset.id_review;
+const REVIEW = document.querySelector('#app').dataset.id_review;
 const SESSION_ID = document.querySelector('head').dataset.id_user;
 
 const app = new Vue({
     el: "#app",
     data: {
         comments: [],
+        error: "",
     },
     methods: {
         removeComment(id) { 
@@ -53,8 +54,12 @@ async function addComment(e) {
             headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify(comment)
         });
-
-        getComments();
+        if (response.ok) {
+            app.error = "";
+            getComments();
+        } else {
+            app.error = "Por favor, ingrese una puntuación del 1 al 5";
+        }
 
     } catch(e) {
         console.log(e);
