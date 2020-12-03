@@ -17,14 +17,17 @@ class ApiCommentController {
         $this->data = file_get_contents("php://input");
     }
 
+    // Lee la variable asociada a la entrada estandar y la convierte en JSON
     function getData() { 
         return json_decode($this->data); 
     } 
 
+    // Notifica al consumidor de la API que el recurso solicitado no existe
     function show404($params = null) {
         $this->view->response("El recurso solicitado no existe", 404);
     }
 
+    //Agrega un comentario a la db
     function add($params=null) {
         $body = $this->getData();
 
@@ -54,6 +57,7 @@ class ApiCommentController {
         }
     }
 
+    //Verifica que le lleguen todos los datos necesarios para agregar un comentario a la db
     function verify($body) {
         if ((isset($body->comment)) && (isset($body->score)) && (isset($body->id_review)) && (isset($body->id_user))) {
             return true;
@@ -62,6 +66,7 @@ class ApiCommentController {
         }
     }
 
+    //Devuelve los comentarios asociados a una review específica
     function getByReview($params=null) {
         $id_review = $params[':REVIEW'];
 
@@ -75,6 +80,7 @@ class ApiCommentController {
         }
     }
 
+    //Elimina un comentario de la db
     function remove($params=null) {
         $id = $params[':ID'];
 

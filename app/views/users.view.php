@@ -41,6 +41,7 @@ class UsersView {
         $this->smarty->display('templates/formUser.tpl');
     }
 
+    //imprime los usuarios registrados
     function printUsers($users, $cantidad){
         $this->smarty->assign('items', $users);
         $this->smarty->assign('itemType', 'users');
@@ -49,6 +50,7 @@ class UsersView {
         $this->smarty->display('templates/printAll.tpl');
     }
 
+    //imprime un error
     function showError($msg) {
         $this->smarty->assign('msg', $msg);
         $this->smarty->display('templates/error.tpl');

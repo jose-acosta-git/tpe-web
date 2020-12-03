@@ -19,12 +19,14 @@ class UsersModel {
         return $user;
     }
 
+    //registra un usuario en la db
     function add($email, $password) {
         $query = $this->db->prepare('INSERT INTO users (email, password) VALUES (?,?)');
         $query->execute([$email, $password]);
         return $this->db->lastInsertId();
     }
 
+    //devuelve todos los usuarios de la db
     function getAll() {
         $query = $this->db->prepare('SELECT id, email, admin FROM users');
         $query->execute();
@@ -32,6 +34,7 @@ class UsersModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    //devuelve un usuario dado el ID del mismo
     function getById($id) {
         $query = $this->db->prepare('SELECT * FROM users WHERE id = ?');
         $query->execute([$id]);
@@ -39,11 +42,13 @@ class UsersModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
+    //modifica el rol de un usuario
     function changeRole($admin, $id) {
         $query = $this->db->prepare('UPDATE users SET admin=? WHERE id = ?');
         $query->execute([$admin, $id]);
     }
 
+    //elimina un usuario de la db
     function remove($id){
         $query = $this->db->prepare('DELETE FROM users WHERE id = ?');
         $query->execute([$id]);

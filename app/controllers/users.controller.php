@@ -19,12 +19,14 @@ class UsersController {
         $this->authHelper = new AuthHelper();
     }
 
+    //Muestra los usuarios registrados
     function showUsers() {
         $users = $this->model->getAll();
         $cantidad = count($users);
         $this->view->printUsers($users, $cantidad);
     }
 
+    //Modifica los permisos/rol de un usuario registrado
     function modifyUser($id) {
         // verifica si existe
         $user = $this->model->getById($id);
@@ -42,6 +44,7 @@ class UsersController {
         header("Location: " . BASE_URL . "administrar");
     }
 
+    //Elimina un usuario registrado de la db
     function removeUser($id) {
         // verifica si existe
         $user = $this->model->getById($id);

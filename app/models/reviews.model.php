@@ -61,6 +61,7 @@ class ReviewsModel {
         $query->execute([$id]);
     }
 
+    //elimina todas las reviews de una categoría dada
     function removeAllByCategory($id) {
         $query = $this->db->prepare('DELETE reviews.* FROM reviews WHERE id_category = ?');
         $query->execute([$id]);

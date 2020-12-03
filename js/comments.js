@@ -10,6 +10,7 @@ const app = new Vue({
         error: "",
     },
     methods: {
+        //elimina un comentario de la db
         removeComment(id) { 
             fetch(`api/comments/${id}`, {
                 method: 'DELETE',
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', e => {
     
 })
 
+//Consume la API e imprime los comentarios que ésta devuelve
 async function getComments() {
     try {
         const response = await fetch(`api/comments/${REVIEW}`);
@@ -38,6 +40,7 @@ async function getComments() {
     }
 }
 
+//Agrega un comentario a la db mediante la API
 async function addComment(e) {
     e.preventDefault();
     const formData = new FormData(this);
